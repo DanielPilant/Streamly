@@ -1,30 +1,323 @@
-#profile_photo {
-  max-width: 300px;
-  border: 1px solid black;
-  border-radius: 50%;
+General Styling
+html{
+  padding: 0px 15px 0px 15px;
+  background: linear-gradient(to bottom, #eaeaea, #ffffff);
+
 }
 
-.movie {
-  flex: 0 0 22%;
-  border: 1px solid black;
-  border-radius: 3px;
-  text-align: center;
-  box-sizing: border-box;
-  height: 350px;
-  max-width: 200px;
+body {
+  font-family: Arial, sans-serif;
+  margin: 0 30px;
 }
+
+header {
+  padding: 10px 0;
+  text-align: center;
+}
+
+/* Profile Photo Styling */
+
+#profile_info {
+  display: grid;
+  justify-items: center;
+  grid-template-columns: 1fr 2fr;
+  align-items: center;
+  gap: 5%;
+  width: fit-content;
+  margin-left: auto; /* Center horizontally */
+  margin-right: auto; /* Center horizontally */
+  padding: 2%;
+}
+
+#profile_photo {
+  max-width: 150px;
+  border: 1px solid black;
+  border-radius: 50%;
+  object-fit: cover;
+  width: 80%;
+}
+
+#profile_info h1 {
+  margin: 10px 0 5px 0;
+}
+
+#profile_info h2 {
+  margin: 5px 0;
+  font-weight: normal;
+  color: #2f2f2f;
+}
+
+
+/* Navigation Bar Styling */
+nav {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 2%;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+/* Navigation Link States */
+nav a:hover {
+  color: #0055b1;
+}
+
+nav a:active {
+  color: #073b74;
+}
+
+/* Heading Section Styles */
+section h2 {
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+
+/* Movie Container Styling */
+
+.movie {
+  flex: 0 0 17.5%;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+  aspect-ratio: 9 / 16;
+  margin-bottom: 6%; /* vertical spacing */
+  position: relative; /* for overlay positioning */
+  cursor: pointer; /* indicate interactivity */
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
 
 .movie img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
+  border-radius: 6px;
+  display: block; 
+  transition: opacity 0.3s ease;
 }
+
 
 .movies-container {
   width: 80%;
   display: flex;
   flex-wrap: wrap;
   gap: 2%;
-  row-gap: 10px; /*TODO: FIX [no hardcode!!]*/
+  justify-content: space-between;
+  margin-left: auto;
+  margin-right: auto;
 }
+
+/* Movie Info Styling */  
+
+.movie-info {
+  position: absolute;
+  inset: 0; /* shorthand for top:0; left:0; right:0; bottom:0; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.6); /* semi-transparent black overlay */
+  color: white;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  text-align: center;
+  padding: 10px;
+  border-radius: 6px; /* match movie border radius */
+}
+
+.movie-info h3 {
+  margin: 5px 0;
+  font-size: 1em;
+}
+
+.movie-info p {
+  margin: 0;
+  font-size: 0.9em;
+  color: #ccc;
+}
+
+/* Show movie info on hover */
+.movie:hover img {
+  opacity: 0.6; /* darken image a bit */
+}
+
+.movie:hover .movie-info {
+  opacity: 1; /* show overlay */
+}
+
+.movie:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+/* Movie details */
+
+.movie-header {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.movie-header iframe {
+  width: 50%;
+  border-radius: 8px;
+  aspect-ratio: 16 / 9;
+  border: none;
+}
+
+.movie-details {
+  flex: 1; /* take remaining space of the row */
+  background: #e1e1e150;
+  padding: 2%;
+  border-radius: 3px;
+}
+
+.movie-links {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.movie-links button {
+  background: #9b9b9b;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.movie-links button:hover {
+  background: #394853;
+}
+
+.movie-links button:active {
+  background: #1c252b;
+}
+
+/* Reviews Table Styling */
+
+.reviews {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.reviews th, .reviews td {
+  border: 1px solid #ddd;
+  padding: 0.5rem;
+}
+
+.reviews th {
+  background: #f2f2f2;
+}
+
+/* Cast Photos */
+
+.cast-list {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.cast-list img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.cast-list p {
+  margin: 0;
+  font-size: 0.9em;
+  color: #555;
+}
+
+/* Movie Poster Styling */
+/* On click the movie player button - all of the screen will be covered with the movie poster */
+
+.play-button {
+  padding-top: 2%;
+  font-size: 2rem;
+  color: black;
+  opacity: 0.8;
+  text-decoration: none; /* Remove underline */
+  cursor: pointer;
+}
+
+.play-button:hover {
+  opacity: 1;
+  color: #587d97;
+}
+
+/* Overlay hidden by default */
+.movie-overlay {
+  position: fixed;
+  inset: 0; /* top:0; left:0; right:0; bottom:0; */
+  background: rgba(0, 0, 0, 0.95);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  z-index: 9999; /* Ensure overlay is on top */
+}
+
+/* Show when targeted */
+:target.movie-overlay {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* Fullscreen video */
+.movie-overlay embed {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+}
+
+.close {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  color: #ffffff;
+  font-size: 1rem;
+  text-decoration: none; /* Remove underline */
+  background: #00000099;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.close:hover {
+  background: #ff0000cc;
+}
+
+
+/* Category Page Hero Section */
+.category-hero {
+  background: url('/assets/categories/action.png') center/cover no-repeat;
+  color: white;
+  text-align: center;
+  padding: 5rem 1rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+}
+
+.category-hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+
+
+

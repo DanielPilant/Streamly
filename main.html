@@ -5,7 +5,7 @@
 </head>
 <body>
   <header>
-    <section>
+    <section id="profile_info">
       <img
         src="assets/photos/profile_pic.png"
         alt="profile picture"
@@ -16,6 +16,7 @@
         <h1>Hello MovieMan!</h1>
         <h2>movieman@acad.jct.ac.il</h2>
       </div>
+    </section>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, maxime
         doloribus tempore voluptatum provident blanditiis magni quibusdam modi
@@ -27,19 +28,36 @@
       <nav>
         <a href="/categories/romance.html">Romance</a>
         <a href="#">Drama</a>
-        <a href="#">Action</a>
+        <a href="/categories/action.html">Action</a>
         <a href="#">New And Popular</a>
       </nav>
-    </section>
   </header>
   <main>
-    <section>
+    <section id="recommendations">
       <h2>Recommendations</h2>
       <div class="movies-container">
+        <article class="movie">
+          <a href="/movies/some_movie.html">
+            <img src="/assets/movie_posters/some_movie.png" alt="SOME MOVIE" />
+            <div class="movie-info">
+              <h3>SOME MOVIE</h3>
+              <p>⭐ ? / 10</p>
+            </div>
+          </a>
+        </article>
+        <article class="movie">
+          <a href="/movies/inception.html">
+            <img src="/assets/movie_posters/inception.png" alt="Inception" />
+            <div class="movie-info">
+              <h3>Inception</h3>
+              <p>⭐ 8.8 / 10</p>
+            </div>
+          </a>
+        </article>
         <article class="movie"></article>
         <article class="movie"></article>
         <article class="movie"></article>
-        <article class="movie"></article>
+        
       </div>
     </section>
   </main>
