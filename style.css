@@ -1,4 +1,4 @@
-General Styling
+/* General Styling */
 html{
   padding: 0px 15px 0px 15px;
   background: linear-gradient(to bottom, #eaeaea, #ffffff);
@@ -7,7 +7,7 @@ html{
 
 body {
   font-family: Arial, sans-serif;
-  margin: 0 30px;
+  margin: 56px 30px;
 }
 
 header {
@@ -49,13 +49,24 @@ header {
 
 
 /* Navigation Bar Styling */
+/* sticky header: fixed to top and visible while scrolling */
+/* with a slight background blur effect */
+
 nav {
-  margin: 20px 0;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
   display: flex;
   justify-content: center;
   gap: 30px;
-  padding: 2%;
+  padding: 12px 2%;
+  z-index: 1000;
+  background: linear-gradient(180deg, #ffffffde, #f2f4f6dd);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid #00000014;
+  box-shadow: 0 6px 18px #00000014;
 }
+
 
 nav a {
   text-decoration: none;
