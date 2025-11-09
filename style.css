@@ -1,71 +1,103 @@
-/* General Styling */
-html{
-  padding: 0px 15px 0px 15px;
-  background: linear-gradient(to bottom, #eaeaea, #ffffff);
+/* =====================================================
+   GLOBAL THEME VARIABLES
+===================================================== */
+:root {
+  --color-text: #333;
+  --color-accent: #17477a;
+  --color-accent-hover: #0a2649;
+  --color-accent-active: #0a1a32;
+  --color-bg-light: #f9f9f9;
+  --color-border: #ccc;
+  --color-shadow: #00000014;
+  --color-overlay: rgba(0, 85, 177, 0.6); /* unified transparency for all overlays */
+  --transition-speed: 0.3s;
+}
 
+* {
+  transition: all var(--transition-speed) ease;
+}
+
+/* =====================================================
+   GENERAL STYLING
+===================================================== */
+html {
+  padding: 0 15px;
+  background: linear-gradient(to bottom, #eaeaea, #ffffff);
+  scroll-padding-top: 70px;
 }
 
 body {
   font-family: Arial, sans-serif;
   margin: 56px 30px;
+  line-height: 1.6;
+  color: var(--color-text);
 }
 
 header {
   padding: 10px 0;
   text-align: center;
-
 }
 
 button {
   cursor: pointer;
+  background: var(--color-accent);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 16px;
 }
 
-/* Login Section Styling */
+button:hover {
+  background: var(--color-accent-hover);
+  transform: translateY(-1px);
+}
+
+button:active {
+  background: var(--color-accent-active);
+  transform: translateY(1px);
+}
+
+/* =====================================================
+   LOGIN SECTION
+===================================================== */
 .login-section {
   max-width: 30%;
   margin: 50px auto;
   padding: 20px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--color-border);
   border-radius: 8px;
-  background-color: #f9f9f9;
+  background-color: var(--color-bg-light);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
+
 .login-section h1 {
   text-align: center;
   margin-bottom: 20px;
 }
+
 .login-section label {
   display: block;
   margin-bottom: 8px;
   font-weight: bold;
 }
+
 .login-section input {
   width: 100%;
   padding: 10px;
   margin-bottom: 15px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--color-border);
   border-radius: 4px;
   box-sizing: border-box;
 }
+
 .login-section button {
   width: 100%;
-  padding: 10px;
-  background-color: #326cab;
-  color: white;
-  border: none;
-  border-radius: 4px;
   font-size: 16px;
 }
-.login-section button:hover {
-  background-color: #2f4e6f;
-}
-.login-section button:active {
-  background-color: #26394d;
-}
 
-
-/* Profile Photo Styling */
-
+/* =====================================================
+   PROFILE SECTION
+===================================================== */
 #profile_info {
   display: grid;
   justify-items: center;
@@ -73,8 +105,7 @@ button {
   align-items: center;
   gap: 5%;
   width: fit-content;
-  margin-left: auto; /* Center horizontally */
-  margin-right: auto; /* Center horizontally */
+  margin: 0 auto;
   padding: 2%;
 }
 
@@ -96,105 +127,100 @@ button {
   color: #2f2f2f;
 }
 
-
-/* Navigation Bar Styling */
-/* sticky header: fixed to top and visible while scrolling */
-/* with a slight background blur effect */
-
+/* =====================================================
+   NAVIGATION BAR
+===================================================== */
 nav {
   position: fixed;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   width: 100%;
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  padding: 12px 2%;
   z-index: 1000;
   background: linear-gradient(180deg, #ffffffde, #f2f4f6dd);
   backdrop-filter: blur(6px);
-  border-bottom: 1px solid #00000014;
-  box-shadow: 0 6px 18px #00000014;
+  border-bottom: 1px solid var(--color-shadow);
+  box-shadow: 0 6px 18px var(--color-shadow);
+  padding: 12px 2%;
 }
 
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
 
 nav a {
   text-decoration: none;
-  color: #333;
+  color: var(--color-accent);
   font-weight: bold;
 }
 
-/* Navigation Link States */
 nav a:hover {
-  color: #0055b1;
+  color: var(--color-accent-hover);
 }
 
 nav a:active {
-  color: #073b74;
+  color: var(--color-accent-active);
 }
 
-/* Heading Section Styles */
-section h2 {
-  margin-bottom: 15px;
-  text-align: center;
-}
+/* =====================================================
+   HEADINGS
+===================================================== */
+h1 { font-size: 2rem; }
+h2 { font-size: 1.5rem; margin-bottom: 15px; text-align: center; }
+h3 { font-size: 1.2rem; }
 
-
-/* Movie Container Styling */
-
-.movie {
-  flex: 0 0 17.5%;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  box-sizing: border-box;
-  aspect-ratio: 9 / 16;
-  margin-bottom: 6%; /* vertical spacing */
-  position: relative; /* for overlay positioning */
-  cursor: pointer; /* indicate interactivity */
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-
-.movie img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 6px;
-  display: block; 
-  transition: opacity 0.3s ease;
-}
-
-
+/* =====================================================
+   MOVIE GRID
+===================================================== */
 .movies-container {
   width: 80%;
   display: flex;
   flex-wrap: wrap;
   gap: 2%;
   justify-content: space-between;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
 }
 
-/* Movie Info Styling */  
+.movie {
+  flex: 0 0 17.5%;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  box-sizing: border-box;
+  aspect-ratio: 9 / 16;
+  margin-bottom: 6%;
+  position: relative;
+  cursor: pointer;
+}
+
+.movie img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+  display: block;
+}
 
 .movie-info {
   position: absolute;
-  inset: 0; /* shorthand for top:0; left:0; right:0; bottom:0; */
+  inset: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: rgba(0, 0, 0, 0.6); /* semi-transparent black overlay */
+  background: var(--color-overlay);
   color: white;
   opacity: 0;
-  transition: opacity 0.3s ease;
   text-align: center;
   padding: 10px;
-  border-radius: 6px; /* match movie border radius */
+  border-radius: 6px;
 }
 
 .movie-info h3 {
   margin: 5px 0;
-  font-size: 1em;
 }
 
 .movie-info p {
@@ -203,23 +229,36 @@ section h2 {
   color: #ccc;
 }
 
-/* Show movie info on hover */
 .movie:hover img {
-  opacity: 0.6; /* darken image a bit */
+  opacity: 0.6;
 }
 
 .movie:hover .movie-info {
-  opacity: 1; /* show overlay */
+  opacity: 1;
 }
 
 .movie:hover {
   transform: scale(1.02);
+  border-color: var(--color-accent);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   z-index: 1;
 }
 
-/* Movie details */
+/* Responsive layout */
+@media (max-width: 900px) {
+  .movie {
+    flex: 0 0 45%;
+  }
+}
+@media (max-width: 600px) {
+  .movie {
+    flex: 0 0 100%;
+  }
+}
 
+/* =====================================================
+   MOVIE DETAILS
+===================================================== */
 .movie-header {
   display: flex;
   gap: 2rem;
@@ -235,7 +274,7 @@ section h2 {
 }
 
 .movie-details {
-  flex: 1; /* take remaining space of the row */
+  flex: 1;
   background: #e1e1e150;
   padding: 2%;
   border-radius: 3px;
@@ -248,24 +287,20 @@ section h2 {
 }
 
 .movie-links button {
-  background: #9b9b9b;
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  cursor: pointer;
+  background: var(--color-accent);
 }
 
 .movie-links button:hover {
-  background: #394853;
+  background: var(--color-accent-hover);
 }
 
 .movie-links button:active {
-  background: #1c252b;
+  background: var(--color-accent-active);
 }
 
-/* Reviews Table Styling */
-
+/* =====================================================
+   REVIEWS TABLE
+===================================================== */
 .reviews {
   width: 100%;
   border-collapse: collapse;
@@ -273,7 +308,8 @@ section h2 {
   text-align: center;
 }
 
-.reviews th, .reviews td {
+.reviews th,
+.reviews td {
   border: 1px solid #ddd;
   padding: 0.5rem;
 }
@@ -282,54 +318,59 @@ section h2 {
   background: #f2f2f2;
 }
 
-/* Cast Photos */
-
+/* =====================================================
+   CAST LIST
+===================================================== */
 .cast-list {
   display: flex;
   gap: 2rem;
   flex-wrap: wrap;
 }
+
 .cast-list img {
   width: 120px;
   height: 120px;
   border-radius: 50%;
   object-fit: cover;
 }
+
 .cast-list p {
   margin: 0;
   font-size: 0.9em;
   color: #555;
 }
 
-/* Movie Poster Styling */
-/* On click the movie player button - all of the screen will be covered with the movie poster */
-
+/* =====================================================
+   PLAY BUTTON & OVERLAY
+===================================================== */
 .play-button {
   padding-top: 2%;
   font-size: 2rem;
-  color: black;
+  color: var(--color-accent);
   opacity: 0.8;
-  text-decoration: none; /* Remove underline */
-  cursor: pointer;
+  text-decoration: none;
 }
 
 .play-button:hover {
   opacity: 1;
-  color: #587d97;
+  color: var(--color-accent-hover);
+}
+
+.play-button:active {
+  color: var(--color-accent-active);
 }
 
 /* Overlay hidden by default */
 .movie-overlay {
   position: fixed;
-  inset: 0; /* top:0; left:0; right:0; bottom:0; */
-  background: rgba(0, 0, 0, 0.95);
+  inset: 0;
+  background: var(--color-overlay);
   display: flex;
   justify-content: center;
   align-items: center;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.4s ease;
-  z-index: 9999; /* Ensure overlay is on top */
+  z-index: 9999;
 }
 
 /* Show when targeted */
@@ -351,33 +392,16 @@ section h2 {
   right: 30px;
   color: #ffffff;
   font-size: 1rem;
-  text-decoration: none; /* Remove underline */
-  background: #00000099;
+  text-decoration: none;
+  background: var(--color-accent);
   padding: 4px 8px;
   border-radius: 4px;
 }
 
 .close:hover {
-  background: #ff0000cc;
+  background: var(--color-accent-hover);
 }
 
-
-/* Category Page Hero Section */
-.category-hero {
-  background: url('/assets/categories/action.png') center/cover no-repeat;
-  color: white;
-  text-align: center;
-  padding: 5rem 1rem;
-  border-radius: 10px;
-  margin-bottom: 2rem;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+.close:active {
+  background: var(--color-accent-active);
 }
-
-.category-hero h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
-
-
-
-

@@ -1,53 +1,57 @@
 <!DOCTYPE html>
+<html lang="en">
 
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MovieMan Dashboard</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
   <header>
     <section id="profile_info">
-      <img
-        src="assets/photos/profile_pic.png"
-        alt="profile picture"
-        hint="profile picture"
-        id="profile_photo"
-      />
+      <img src="assets/photos/profile_pic.png" alt="Profile picture" id="profile_photo" />
       <div>
         <h1>Hello MovieMan!</h1>
         <h2>movieman@acad.jct.ac.il</h2>
       </div>
     </section>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, maxime
-        doloribus tempore voluptatum provident blanditiis magni quibusdam modi
-        soluta possimus recusandae amet eaque distinctio assumenda corrupti
-        nihil similique architecto debitis sit ex quis et aperiam. Atque, odit
-        amet sunt iusto voluptate laborum delectus hic at maxime vel qui ex
-        architecto!
-      </p>
-      <nav>
-        <a href="/categories/romance.html">Romance</a>
-        <a href="#">Drama</a>
-        <a href="/categories/action.html">Action</a>
-        <a href="#">New And Popular</a>
-      </nav>
+
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, maxime
+      doloribus tempore voluptatum provident blanditiis magni quibusdam modi
+      soluta possimus recusandae amet eaque distinctio assumenda corrupti
+      nihil similique architecto debitis sit ex quis et aperiam.
+    </p>
   </header>
+
+  <nav>
+    <ul>
+      <li><a href="/categories/romance.html">Romance</a></li>
+      <li><a href="#">Drama</a></li>
+      <li><a href="/categories/action.html">Action</a></li>
+      <li><a href="#">New & Popular</a></li>
+    </ul>
+  </nav>
+
   <main>
     <section id="recommendations">
       <h2>Recommendations</h2>
       <div class="movies-container">
         <article class="movie">
           <a href="/movies/some_movie.html">
-            <img src="/assets/movie_posters/some_movie.png" alt="SOME MOVIE" />
+            <img src="/assets/movie_posters/some_movie.png" alt="Poster of SOME MOVIE" />
             <div class="movie-info">
               <h3>SOME MOVIE</h3>
               <p>⭐ ? / 10</p>
             </div>
           </a>
         </article>
+
         <article class="movie">
           <a href="/movies/inception.html">
-            <img src="/assets/movie_posters/inception.png" alt="Inception" />
+            <img src="/assets/movie_posters/inception.png" alt="Poster of Inception" />
             <div class="movie-info">
               <h3>Inception</h3>
               <p>⭐ 8.8 / 10</p>
@@ -56,22 +60,14 @@
         </article>
         <article class="movie"></article>
         <article class="movie"></article>
-        <article class="movie"></article>
-
-        
-        <article class="movie"></article>
-        <article class="movie"></article>
-        <article class="movie"></article>
-        
-        <article class="movie"></article>
-        <article class="movie"></article>
-        <article class="movie"></article>
-        
-        <article class="movie"></article>
-        <article class="movie"></article>
-        <article class="movie"></article>
-        
       </div>
     </section>
   </main>
+
+  <footer>
+    <hr>
+    <p>&copy; 2025 Streamly. All rights reserved.</p>
+  </footer>
 </body>
+
+</html>
