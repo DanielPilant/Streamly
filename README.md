@@ -19,4 +19,3 @@ This project focuses purely on the **structure** and **styling** layers of web d
 - **CSS3** for layout, colors, and styling  
 - **Flexbox** & **CSS Grid** for responsive movie grids  
 
-## 📁 Project Structure
