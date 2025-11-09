@@ -2,14 +2,14 @@
    GLOBAL THEME VARIABLES
 ===================================================== */
 :root {
-  --color-text: #333;
-  --color-accent: #17477a;
-  --color-accent-hover: #0a2649;
-  --color-accent-active: #0a1a32;
-  --color-bg-light: #f9f9f9;
-  --color-border: #ccc;
-  --color-shadow: #00000014;
-  --color-overlay: rgba(0, 85, 177, 0.6); /* unified transparency for all overlays */
+  --color-text: #e5e7eb; /* light gray for dark UIs */
+  --color-accent: #8ab4f8; /* blue accent (modern dark) */
+  --color-accent-hover: #a7c3ff; /* lighter on hover */
+  --color-accent-active: #5e8eea; /* pressed state */
+  --color-bg-light: #0f172a; /* slate-900 surface */
+  --color-border: #2a2f3a; /* subtle dark border */
+  --color-shadow: #00000066; /* stronger shadow on dark */
+  --color-overlay: rgba(0, 0, 0, 0.6); /* unchanged */
   --transition-speed: 0.3s;
 }
 
@@ -21,16 +21,24 @@
    GENERAL STYLING
 ===================================================== */
 html {
-  padding: 0 15px;
-  background: linear-gradient(to bottom, #eaeaea, #ffffff);
+  background-image: url("assets/photos/star-wars-plzcoaffexgf4h81.jpg");
   scroll-padding-top: 70px;
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
   margin: 56px 30px;
   line-height: 1.6;
   color: var(--color-text);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(6, 2, 17, 0.98));
 }
 
 header {
@@ -38,21 +46,21 @@ header {
   text-align: center;
 }
 
-button {
+.a-button {
   cursor: pointer;
   background: var(--color-accent);
-  color: white;
+  color: #0b1020;
   border: none;
   border-radius: 6px;
   padding: 10px 16px;
 }
 
-button:hover {
+.a-button:hover {
   background: var(--color-accent-hover);
   transform: translateY(-1px);
 }
 
-button:active {
+.a-button:active {
   background: var(--color-accent-active);
   transform: translateY(1px);
 }
@@ -67,7 +75,7 @@ button:active {
   border: 1px solid var(--color-border);
   border-radius: 8px;
   background-color: var(--color-bg-light);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px var(--color-shadow);
 }
 
 .login-section h1 {
@@ -79,6 +87,7 @@ button:active {
   display: block;
   margin-bottom: 8px;
   font-weight: bold;
+  color: var(--color-text);
 }
 
 .login-section input {
@@ -88,11 +97,8 @@ button:active {
   border: 1px solid var(--color-border);
   border-radius: 4px;
   box-sizing: border-box;
-}
-
-.login-section button {
-  width: 100%;
-  font-size: 16px;
+  background: #0b1222;
+  color: var(--color-text);
 }
 
 /* =====================================================
@@ -111,7 +117,7 @@ button:active {
 
 #profile_photo {
   max-width: 150px;
-  border: 1px solid black;
+  border: 1px solid var(--color-border);
   border-radius: 50%;
   object-fit: cover;
   width: 80%;
@@ -119,12 +125,13 @@ button:active {
 
 #profile_info h1 {
   margin: 10px 0 5px 0;
+  color: var(--color-text);
 }
 
 #profile_info h2 {
   margin: 5px 0;
   font-weight: normal;
-  color: #2f2f2f;
+  color: #cbd5e1;
 }
 
 /* =====================================================
@@ -136,9 +143,13 @@ nav {
   left: 0;
   width: 100%;
   z-index: 1000;
-  background: linear-gradient(180deg, #ffffffde, #f2f4f6dd);
+  background: linear-gradient(
+    180deg,
+    rgba(10, 0, 4, 0.92),
+    rgba(0, 0, 0, 0.78)
+  );
   backdrop-filter: blur(6px);
-  border-bottom: 1px solid var(--color-shadow);
+  border-bottom: 1px solid var(--color-border);
   box-shadow: 0 6px 18px var(--color-shadow);
   padding: 12px 2%;
 }
@@ -169,10 +180,25 @@ nav a:active {
 /* =====================================================
    HEADINGS
 ===================================================== */
-h1 { font-size: 2rem; }
-h2 { font-size: 1.5rem; margin-bottom: 15px; text-align: center; }
-h3 { font-size: 1.2rem; }
+h1 {
+  font-size: 2rem;
+  color: var(--color-text);
+}
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  text-align: center;
+  color: var(--color-text);
+}
+h3 {
+  font-size: 1.2rem;
+  color: var(--color-text);
+}
+p#welcome_message {
+  font-family: "Dancing Script", cursive;
 
+  font-size: 1.2rem;
+}
 /* =====================================================
    MOVIE GRID
 ===================================================== */
@@ -181,12 +207,12 @@ h3 { font-size: 1.2rem; }
   display: flex;
   flex-wrap: wrap;
   gap: 2%;
-  justify-content: space-between;
+  justify-content: center;
   margin: 0 auto;
 }
 
 .movie {
-  flex: 0 0 17.5%;
+  flex: 0 0 22%;
   border: 1px solid var(--color-border);
   border-radius: 6px;
   box-sizing: border-box;
@@ -204,6 +230,13 @@ h3 { font-size: 1.2rem; }
   display: block;
 }
 
+.details-list {
+  list-style: none;
+  padding: 0;
+  color: #c7d2fe;
+  font-size: 0.7em;
+}
+
 .movie-info {
   position: absolute;
   inset: 0;
@@ -212,7 +245,7 @@ h3 { font-size: 1.2rem; }
   justify-content: center;
   align-items: center;
   background: var(--color-overlay);
-  color: white;
+  color: #e9efff;
   opacity: 0;
   text-align: center;
   padding: 10px;
@@ -221,12 +254,13 @@ h3 { font-size: 1.2rem; }
 
 .movie-info h3 {
   margin: 5px 0;
+  color: #f3f7ff;
 }
 
 .movie-info p {
   margin: 0;
   font-size: 0.9em;
-  color: #ccc;
+  color: #c7d2fe;
 }
 
 .movie:hover img {
@@ -240,14 +274,14 @@ h3 { font-size: 1.2rem; }
 .movie:hover {
   transform: scale(1.02);
   border-color: var(--color-accent);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 12px var(--color-shadow);
   z-index: 1;
 }
 
 /* Responsive layout */
 @media (max-width: 900px) {
   .movie {
-    flex: 0 0 45%;
+    flex: 1 1 45%;
   }
 }
 @media (max-width: 600px) {
@@ -275,7 +309,7 @@ h3 { font-size: 1.2rem; }
 
 .movie-details {
   flex: 1;
-  background: #e1e1e150;
+  background: #ffffff0d; /* subtle translucent card on dark */
   padding: 2%;
   border-radius: 3px;
 }
@@ -289,11 +323,9 @@ h3 { font-size: 1.2rem; }
 .movie-links button {
   background: var(--color-accent);
 }
-
 .movie-links button:hover {
   background: var(--color-accent-hover);
 }
-
 .movie-links button:active {
   background: var(--color-accent-active);
 }
@@ -306,16 +338,19 @@ h3 { font-size: 1.2rem; }
   border-collapse: collapse;
   margin: 1rem 0;
   text-align: center;
+  color: var(--color-text);
 }
 
 .reviews th,
 .reviews td {
-  border: 1px solid #ddd;
+  border: 1px solid var(--color-border);
   padding: 0.5rem;
+  background: #0b1222;
 }
 
 .reviews th {
-  background: #f2f2f2;
+  background: #111827; /* darker header row */
+  color: #cbd5e1;
 }
 
 /* =====================================================
@@ -337,7 +372,7 @@ h3 { font-size: 1.2rem; }
 .cast-list p {
   margin: 0;
   font-size: 0.9em;
-  color: #555;
+  color: #9aa3b2;
 }
 
 /* =====================================================
@@ -347,7 +382,7 @@ h3 { font-size: 1.2rem; }
   padding-top: 2%;
   font-size: 2rem;
   color: var(--color-accent);
-  opacity: 0.8;
+  opacity: 0.9;
   text-decoration: none;
 }
 
@@ -401,7 +436,6 @@ h3 { font-size: 1.2rem; }
 .close:hover {
   background: var(--color-accent-hover);
 }
-
 .close:active {
   background: var(--color-accent-active);
 }

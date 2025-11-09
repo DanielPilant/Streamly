@@ -21,7 +21,11 @@
   <main>
     <section class="movie-header">
       <!-- Trailer -->
-      <iframe src="https://www.youtube.com/embed/YoHD9XEInc0" title="Inception Trailer" allowfullscreen></iframe>
+      <iframe
+        src="https://www.youtube.com/embed/YoHD9XEInc0"
+        title="Inception Trailer"
+        allowfullscreen
+      ></iframe>
 
       <!-- Details -->
       <div class="movie-details">
@@ -32,9 +36,30 @@
         <p><strong>Rating:</strong> ⭐ 8.8 / 10</p>
 
         <div class="movie-links">
-          <button onclick="window.open('https://www.imdb.com/title/tt1375666/')">IMDB</button> <!-- TODO: check if that is ok! -->
-          <button onclick="window.open('https://www.youtube.com/watch?v=YoHD9XEInc0')">YouTube</button> <!-- TODO: check if that is ok! -->
-          <button onclick="window.open('https://en.wikipedia.org/wiki/Inception')">Wikipedia</button> <!-- TODO: check if that is ok! -->
+          <a
+            class="a-button"
+            href="https://www.imdb.com/title/tt1375666/"
+            target="_blank"
+          >
+            IMDB
+          </a>
+          <!-- TODO: check if that is ok! -->
+          <a
+            class="a-button"
+            href="https://www.youtube.com/watch?v=YoHD9XEInc0"
+            target="_blank"
+          >
+            YouTube
+          </a>
+          <!-- TODO: check if that is ok! -->
+          <a
+            class="a-button"
+            href="https://en.wikipedia.org/wiki/Inception"
+            target="_blank"
+          >
+            Wikipedia
+          </a>
+          <!-- TODO: check if that is ok! -->
         </div>
       </div>
     </section>
@@ -43,63 +68,71 @@
     <a href="#movie" class="play-button">▶ play The Movie</a>
 
     <!-- Hidden movie overlay -->
+    <!--I changed it from 'embed' to 'video' to fix autoplay bug. Daniel.-->
     <div id="movie" class="movie-overlay">
+      <video src="/assets/videos/inception.mp4" controls></video>
       <a href="#" class="close">✕</a>
-      <embed src="/assets/videos/inception.mp4" controls autoplay></embed>
     </div>
 
-  <p>
-    A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an
-    idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster.
-  </p>
+    <p>
+      A thief who steals corporate secrets through the use of dream-sharing
+      technology is given the inverse task of planting an idea into the mind of
+      a C.E.O., but his tragic past may doom the project and his team to
+      disaster.
+    </p>
 
-  <section>
-    <!-- Reviews Table Section -->
-    <h3>Reviews</h3>
-    <table class="reviews">
-      <tr>
-        <th>Reviewer</th>
-        <th>Rating</th>
-        <th>Comment</th>
-      </tr>
-      <tr>
-        <td>Rotten Tomatoes</td>
-        <td>91%</td>
-        <td>Visually stunning and deeply emotional.</td>
-      </tr>
-      <tr>
-        <td>IMDB Users</td>
-        <td>8.6/10</td>
-        <td>One of Nolan’s best works.</td>
-      </tr>
-      <tr>
-        <td>Metacritic</td>
-        <td>74/100</td>
-        <td>Complex but rewarding.</td>
-      </tr>
-    </table>
+    <section>
+      <!-- Reviews Table Section -->
+      <h3>Reviews</h3>
+      <table class="reviews">
+        <tr>
+          <th>Reviewer</th>
+          <th>Rating</th>
+          <th>Comment</th>
+        </tr>
+        <tr>
+          <td>Rotten Tomatoes</td>
+          <td>91%</td>
+          <td>Visually stunning and deeply emotional.</td>
+        </tr>
+        <tr>
+          <td>IMDB Users</td>
+          <td>8.6/10</td>
+          <td>One of Nolan’s best works.</td>
+        </tr>
+        <tr>
+          <td>Metacritic</td>
+          <td>74/100</td>
+          <td>Complex but rewarding.</td>
+        </tr>
+      </table>
 
-
-    <!-- Cast Section -->
-    <section class="cast">
-      <h3>Cast</h3>
-      <div class="cast-list">
-        <div><img src="/assets/actors/mcconaughey.png">
-          <p>Matthew McConaughey<br><small>Cooper</small></p>
+      <!-- Cast Section -->
+      <section class="cast">
+        <h3>Cast</h3>
+        <div class="cast-list">
+          <div>
+            <img src="/assets/actors/mcconaughey.png" />
+            <p>Matthew McConaughey<br /><small>Cooper</small></p>
+          </div>
+          <div>
+            <img src="/assets/actors/hathaway.png" />
+            <p>Anne Hathaway<br /><small>Brand</small></p>
+          </div>
+          <div>
+            <img src="/assets/actors/chastain.png" />
+            <p>Jessica Chastain<br /><small>Murph</small></p>
+          </div>
+          <div>
+            <img src="/assets/actors/oldman.png" />
+            <p>Michael Caine<br /><small>Professor Brand</small></p>
+          </div>
+          <div>
+            <img src="/assets/actors/dicaprio.png" />
+            <p>Leonardo DiCaprio<br /><small>Cobb</small></p>
+          </div>
         </div>
-        <div><img src="/assets/actors/hathaway.png">
-          <p>Anne Hathaway<br><small>Brand</small></p>
-        </div>
-        <div><img src="/assets/actors/chastain.png">
-          <p>Jessica Chastain<br><small>Murph</small></p>
-        </div>
-        <div><img src="/assets/actors/oldman.png">
-          <p>Michael Caine<br><small>Professor Brand</small></p>
-        </div>
-        <div><img src="/assets/actors/dicaprio.png">
-          <p>Leonardo DiCaprio<br><small>Cobb</small></p>
-        </div>
-      </div>
+      </section>
     </section>
-    </main>
+  </main>
 </body>

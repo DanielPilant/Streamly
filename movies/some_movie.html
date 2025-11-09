@@ -7,9 +7,9 @@
 
 <body>
   <header>
-  <h1>SOME MOVIE (YEAR)</h1>
+    <h1>SOME MOVIE (YEAR)</h1>
   </header>
-    <nav>
+  <nav>
     <ul>
       <li><a href="../main.html">Home</a></li>
       <li><a href="/categories/romance.html">Romance</a></li>
@@ -21,7 +21,11 @@
   <main>
     <section class="movie-header">
       <!-- Trailer -->
-      <iframe src="https://www.youtube.com/embed/?" title="SOME MOVIE Trailer" allowfullscreen></iframe>
+      <iframe
+        src="https://www.youtube.com/embed/?"
+        title="SOME MOVIE Trailer"
+        allowfullscreen
+      ></iframe>
 
       <!-- Details -->
       <div class="movie-details">
@@ -32,9 +36,18 @@
         <p><strong>Rating:</strong> ⭐ ? / 10</p>
 
         <div class="movie-links">
-          <button onclick="window.open('https://www.imdb.com/title/?')">IMDB</button> <!-- TODO: check if that is ok! -->
-          <button onclick="window.open('https://www.youtube.com/watch?')">YouTube</button> <!-- TODO: check if that is ok! -->
-          <button onclick="window.open('https://en.wikipedia.org/wiki/?')">Wikipedia</button> <!-- TODO: check if that is ok! -->
+          <button onclick="window.open('https://www.imdb.com/title/?')">
+            IMDB
+          </button>
+          <!-- TODO: check if that is ok! -->
+          <button onclick="window.open('https://www.youtube.com/watch?')">
+            YouTube
+          </button>
+          <!-- TODO: check if that is ok! -->
+          <button onclick="window.open('https://en.wikipedia.org/wiki/?')">
+            Wikipedia
+          </button>
+          <!-- TODO: check if that is ok! -->
         </div>
       </div>
     </section>
@@ -43,65 +56,80 @@
     <a href="#movie" class="play-button">▶ play The Movie</a>
 
     <!-- Hidden movie overlay -->
+    <!--I changed it from 'embed' to 'video' to fix autoplay bug. Daniel.-->
+
     <div id="movie" class="movie-overlay">
+      <video src="/assets/videos/?.mp4" controls autoplay></video>
       <a href="#" class="close">✕</a>
-      <embed src="/assets/videos/?.mp4" controls autoplay></embed>
     </div>
 
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa adipisci eos eveniet incidunt eum provident fuga debitis laudantium voluptatum eius consectetur, recusandae libero obcaecati quisquam, quas ducimus mollitia. Voluptatibus, debitis.
-  </p>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa adipisci
+      eos eveniet incidunt eum provident fuga debitis laudantium voluptatum eius
+      consectetur, recusandae libero obcaecati quisquam, quas ducimus mollitia.
+      Voluptatibus, debitis.
+    </p>
 
-  <section>
-    <!-- Reviews Table Section -->
-    <h3>Reviews</h3>
-    <table class="reviews">
-      <tr>
-        <th>Reviewer</th>
-        <th>Rating</th>
-        <th>Comment</th>
-      </tr>
-      <tr>
-        <td>?</td>
-        <td>?%</td>
-        <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, quis?</td>
-      </tr>
-      <tr>
-        <td>IMDB Users</td>
-        <td>?/10</td>
-        <td>Lorem ipsum dolor sit amet.</td>
-      </tr>
-      <tr>
-        <td>Metacritic</td>
-        <td>?/100</td>
-        <td>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea, amet?</td>
-      </tr>
-    </table>
+    <section>
+      <!-- Reviews Table Section -->
+      <h3>Reviews</h3>
+      <table class="reviews">
+        <tr>
+          <th>Reviewer</th>
+          <th>Rating</th>
+          <th>Comment</th>
+        </tr>
+        <tr>
+          <td>?</td>
+          <td>?%</td>
+          <td>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, quis?
+          </td>
+        </tr>
+        <tr>
+          <td>IMDB Users</td>
+          <td>?/10</td>
+          <td>Lorem ipsum dolor sit amet.</td>
+        </tr>
+        <tr>
+          <td>Metacritic</td>
+          <td>?/100</td>
+          <td>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea, amet?
+          </td>
+        </tr>
+      </table>
 
-
-    <!-- Cast Section -->
-    <section class="cast">
-      <h3>Cast</h3>
-      <div class="cast-list">
-        <div><img src="/assets/actors/?.png">
-          <p>?<br><small>?</small></p>
+      <!-- Cast Section -->
+      <section class="cast">
+        <h3>Cast</h3>
+        <div class="cast-list">
+          <div>
+            <img src="/assets/actors/?.png" />
+            <p>?<br /><small>?</small></p>
+          </div>
+          <div>
+            <img src="/assets/actors/?.png" />
+            <p>?<br /><small>?</small></p>
+          </div>
+          <div>
+            <img src="/assets/actors/?.png" />
+            <p>?<br /><small>?</small></p>
+          </div>
+          <div>
+            <img src="/assets/actors/?.png" />
+            <p>?<br /><small>?</small></p>
+          </div>
+          <div>
+            <img src="/assets/actors/?.png" />
+            <p>?<br /><small>?</small></p>
+          </div>
+          <div>
+            <img src="/assets/actors/?.png" />
+            <p>?<br /><small>?</small></p>
+          </div>
         </div>
-        <div><img src="/assets/actors/?.png">
-          <p>?<br><small>?</small></p>
-        </div>
-        <div><img src="/assets/actors/?.png">
-          <p>?<br><small>?</small></p>
-        </div>
-        <div><img src="/assets/actors/?.png">
-          <p>?<br><small>?</small></p>
-        </div>
-        <div><img src="/assets/actors/?.png">
-          <p>?<br><small>?</small></p>
-        </div>
-        <div><img src="/assets/actors/?.png">
-          <p>?<br><small>?</small></p>
-        </div>
-      </div>
+      </section>
     </section>
-    </main>
+  </main>
 </body>
