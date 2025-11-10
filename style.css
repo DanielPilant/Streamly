@@ -2,14 +2,22 @@
    GLOBAL THEME VARIABLES
 ===================================================== */
 :root {
-  --color-text: #e5e7eb; /* light gray for dark UIs */
-  --color-accent: #8ab4f8; /* blue accent (modern dark) */
-  --color-accent-hover: #a7c3ff; /* lighter on hover */
-  --color-accent-active: #5e8eea; /* pressed state */
-  --color-bg-light: #0f172a; /* slate-900 surface */
-  --color-border: #2a2f3a; /* subtle dark border */
-  --color-shadow: #00000066; /* stronger shadow on dark */
-  --color-overlay: rgba(0, 0, 0, 0.6); /* unchanged */
+  --color-text: #e5e7eb;
+  /* light gray for dark UIs */
+  --color-accent: #8ab4f8;
+  /* blue accent (modern dark) */
+  --color-accent-hover: #a7c3ff;
+  /* lighter on hover */
+  --color-accent-active: #5e8eea;
+  /* pressed state */
+  --color-bg-light: #0f172a;
+  /* slate-900 surface */
+  --color-border: #2a2f3a;
+  /* subtle dark border */
+  --color-shadow: #00000066;
+  /* stronger shadow on dark */
+  --color-overlay: rgba(0, 0, 0, 0.6);
+  /* unchanged */
   --transition-speed: 0.3s;
 }
 
@@ -28,7 +36,7 @@ html {
 body {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
-  margin: 56px 30px;
+  margin: 56px 30px 20px 30px;
   line-height: 1.6;
   color: var(--color-text);
 }
@@ -47,12 +55,13 @@ header {
 }
 
 .a-button {
-  cursor: pointer;
   background: var(--color-accent);
+  text-decoration: none;   /* rempve underline */
   color: #0b1020;
   border: none;
-  border-radius: 6px;
-  padding: 10px 16px;
+  border-radius: 5px;
+  padding: 7px 12px;
+  
 }
 
 .a-button:hover {
@@ -143,12 +152,10 @@ nav {
   left: 0;
   width: 100%;
   z-index: 1000;
-  background: linear-gradient(
-    180deg,
-    rgba(10, 0, 4, 0.92),
-    rgba(0, 0, 0, 0.78)
-  );
-  backdrop-filter: blur(6px);
+  background: linear-gradient(180deg,
+      rgba(10, 0, 4, 0.92),
+      rgba(0, 0, 0, 0.78));
+  backdrop-filter: blur(3px);
   border-bottom: 1px solid var(--color-border);
   box-shadow: 0 6px 18px var(--color-shadow);
   padding: 12px 2%;
@@ -156,6 +163,7 @@ nav {
 
 nav ul {
   list-style: none;
+  /* remove default bullets */
   display: flex;
   justify-content: center;
   gap: 30px;
@@ -184,21 +192,24 @@ h1 {
   font-size: 2rem;
   color: var(--color-text);
 }
+
 h2 {
   font-size: 1.5rem;
   margin-bottom: 15px;
   text-align: center;
   color: var(--color-text);
 }
+
 h3 {
   font-size: 1.2rem;
   color: var(--color-text);
 }
-p#welcome_message {
-  font-family: "Dancing Script", cursive;
 
+p.messages {
+  font-family: "Dancing Script", cursive;
   font-size: 1.2rem;
 }
+
 /* =====================================================
    MOVIE GRID
 ===================================================== */
@@ -284,6 +295,7 @@ p#welcome_message {
     flex: 1 1 45%;
   }
 }
+
 @media (max-width: 600px) {
   .movie {
     flex: 0 0 100%;
@@ -309,7 +321,8 @@ p#welcome_message {
 
 .movie-details {
   flex: 1;
-  background: #ffffff0d; /* subtle translucent card on dark */
+  background: #ffffff0d;
+  /* subtle translucent card on dark */
   padding: 2%;
   border-radius: 3px;
 }
@@ -323,9 +336,11 @@ p#welcome_message {
 .movie-links button {
   background: var(--color-accent);
 }
+
 .movie-links button:hover {
   background: var(--color-accent-hover);
 }
+
 .movie-links button:active {
   background: var(--color-accent-active);
 }
@@ -349,7 +364,8 @@ p#welcome_message {
 }
 
 .reviews th {
-  background: #111827; /* darker header row */
+  background: #111827;
+  /* darker header row */
   color: #cbd5e1;
 }
 
@@ -399,23 +415,25 @@ p#welcome_message {
 .movie-overlay {
   position: fixed;
   inset: 0;
-  background: var(--color-overlay);
+  background: rgba(0,0,0,0.95);
   display: flex;
   justify-content: center;
   align-items: center;
   opacity: 0;
   pointer-events: none;
+  transition: opacity 0.3s ease;
   z-index: 9999;
 }
 
-/* Show when targeted */
-:target.movie-overlay {
+/* Show overlay when targeted */
+.movie-overlay:target {
   opacity: 1;
   pointer-events: all;
 }
 
+
 /* Fullscreen video */
-.movie-overlay embed {
+.movie-overlay video {
   width: 100%;
   height: 100%;
   border-radius: 8px;
@@ -428,14 +446,89 @@ p#welcome_message {
   color: #ffffff;
   font-size: 1rem;
   text-decoration: none;
-  background: var(--color-accent);
+  background: rgb(255, 0, 0.2);
   padding: 4px 8px;
   border-radius: 4px;
 }
 
 .close:hover {
-  background: var(--color-accent-hover);
+  background: rgb(255, 0, 0.8);
 }
+
 .close:active {
-  background: var(--color-accent-active);
+  background: rgb(200, 0, 0);
+}
+
+/* =====================================================
+   TERMS OF SERVICE PAGE
+===================================================== */
+.terms-container {
+  display: flex;
+  gap: 40px;
+  margin: 40px auto;
+  max-width: 1200px;
+  align-items: flex-start;
+}
+
+.terms-text {
+  flex: 1;
+  padding: 20px;
+  box-shadow: 0 4px 12px var(--color-shadow);
+  color: var(--color-text);
+}
+
+.terms-text h2 {
+  color: var(--color-accent);
+}
+
+.terms-pdf {
+  flex: 1;
+}
+
+.terms-pdf embed {
+  width: 100%;
+  height: 600px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px var(--color-shadow);
+}
+
+.terms-text p {
+  margin-bottom: 15px;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+/* =====================================================
+   FOOTER
+===================================================== */
+footer {
+  text-align: center;
+  margin-top: 50px;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-text);
+}
+
+footer a {
+  color: var(--color-accent);
+  text-decoration: none;
+  display: inline-block;
+}
+
+footer a:hover {
+  color: var(--color-accent-hover);
+}
+
+footer a:active {
+  color: var(--color-accent-active);
+}
+
+
+
+/* =====================================================
+   RESPONSIVE ADJUSTMENTS FOR ALL PAGES
+===================================================== */
+@media (max-width: 900px) {
+  .terms-container {
+    flex-direction: column;
+  }
 }

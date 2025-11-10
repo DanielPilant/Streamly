@@ -12,20 +12,16 @@
   <nav>
     <ul>
       <li><a href="../main.html">Home</a></li>
-      <li><a href="/categories/romance.html">Romance</a></li>
-      <li><a href="#">Drama</a></li>
-      <li><a href="/categories/action.html">Action</a></li>
-      <li><a href="#">New & Popular</a></li>
+      <li><a href="../categories/romance.html">Romance</a></li>
+      <li><a href="../categories/drama.html">Drama</a></li>
+      <li><a href="../categories/action.html">Action</a></li>
+      <li><a href="../categories/new_and_popular.html">New & Popular</a></li>
     </ul>
   </nav>
   <main>
     <section class="movie-header">
       <!-- Trailer -->
-      <iframe
-        src="https://www.youtube.com/embed/YoHD9XEInc0"
-        title="Inception Trailer"
-        allowfullscreen
-      ></iframe>
+      <iframe src="https://www.youtube.com/embed/YoHD9XEInc0" title="Inception Trailer" allowfullscreen></iframe>
 
       <!-- Details -->
       <div class="movie-details">
@@ -36,42 +32,28 @@
         <p><strong>Rating:</strong> ⭐ 8.8 / 10</p>
 
         <div class="movie-links">
-          <a
-            class="a-button"
-            href="https://www.imdb.com/title/tt1375666/"
-            target="_blank"
-          >
+          <a class="a-button" href="https://www.imdb.com/title/tt1375666/" target="_blank">
             IMDB
           </a>
-          <!-- TODO: check if that is ok! -->
-          <a
-            class="a-button"
-            href="https://www.youtube.com/watch?v=YoHD9XEInc0"
-            target="_blank"
-          >
+          <a class="a-button" href="https://www.youtube.com/watch?v=YoHD9XEInc0" target="_blank">
             YouTube
           </a>
-          <!-- TODO: check if that is ok! -->
-          <a
-            class="a-button"
-            href="https://en.wikipedia.org/wiki/Inception"
-            target="_blank"
-          >
+          <a class="a-button" href="https://en.wikipedia.org/wiki/Inception" target="_blank">
             Wikipedia
           </a>
-          <!-- TODO: check if that is ok! -->
         </div>
       </div>
     </section>
 
     <!-- Play Movie Button -->
-    <a href="#movie" class="play-button">▶ play The Movie</a>
+    <a href="#inception" class="play-button">▶ play The Movie</a>
 
     <!-- Hidden movie overlay -->
-    <!--I changed it from 'embed' to 'video' to fix autoplay bug. Daniel.-->
-    <div id="movie" class="movie-overlay">
-      <video src="/assets/videos/inception.mp4" controls></video>
-      <a href="#" class="close">✕</a>
+    <div id="inception" class="movie-overlay">
+      <video controls>
+        <source src="/assets/videos/inception.mp4" type="video/mp4">
+      </video>
+      <a href="/movies/inception.html" class="close">✕</a>
     </div>
 
     <p>
@@ -124,7 +106,7 @@
             <p>Jessica Chastain<br /><small>Murph</small></p>
           </div>
           <div>
-            <img src="/assets/actors/oldman.png" />
+            <img src="/assets/actors/caine.png" />
             <p>Michael Caine<br /><small>Professor Brand</small></p>
           </div>
           <div>
@@ -135,4 +117,9 @@
       </section>
     </section>
   </main>
+
+  <footer>
+    <p>&copy; 2025 Streamly. All rights reserved.</p>
+    <a href="../terms.html">Terms of Service</a>
+  </footer>
 </body>
