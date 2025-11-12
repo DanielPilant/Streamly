@@ -5,14 +5,16 @@
   <title>Inception</title>
 </head>
 
-<body>
+<body id="inception-page">
   <header>
-    <h1>Inception (2010)</h1>
+    <h1 class="movie-title">Inception</h1>
   </header>
   <nav>
     <ul>
       <li class="logo">
-        <a href="../login.html"><img src="../assets/photos/logo.png" alt="Login Icon" /></a>
+        <a href="/main.html"
+          ><img src="../assets/photos/logo.png" alt="Login Icon"
+        /></a>
       </li>
 
       <li class="link-group">
@@ -25,49 +27,94 @@
     </ul>
   </nav>
   <main>
-    <section class="movie-header">
-      <!-- Trailer -->
-      <iframe src="https://www.youtube.com/embed/YoHD9XEInc0" title="Inception Trailer" allowfullscreen></iframe>
+    <div class="movie-content">
+      <div id="trailer-and-movie">
+        <!-- Trailer -->
+        <iframe
+          src="https://www.youtube.com/embed/YoHD9XEInc0"
+          title="Inception Trailer"
+          allowfullscreen
+        ></iframe>
 
-      <!-- Details -->
-      <div class="movie-details">
-        <h1>Inception</h1>
-        <p><strong>Year:</strong> 2010</p>
-        <p><strong>Genre:</strong> Sci-Fi, Thriller</p>
-        <p><strong>Duration:</strong> 2h 28m</p>
-        <p><strong>Rating:</strong> ⭐ 8.8 / 10</p>
+        <!-- Play Movie Button -->
+        <a href="#inception" class="play-button">▶ play The Movie</a>
+      </div>
+
+      <section class="movie-header">
+        <!-- Details -->
+        <div class="short-details">
+          <p>⭐ 8.8 / 10</p>
+          <p>2010</p>
+          <p>Sci-Fi, Thriller</p>
+          <p>2h 28m</p>
+        </div>
 
         <div class="movie-links">
-          <a class="a-button" href="https://www.imdb.com/title/tt1375666/" target="_blank">
+          <a
+            class="a-button"
+            href="https://www.imdb.com/title/tt1375666/"
+            target="_blank"
+          >
             IMDB
           </a>
-          <a class="a-button" href="https://www.youtube.com/watch?v=YoHD9XEInc0" target="_blank">
+          <a
+            class="a-button"
+            href="https://www.youtube.com/watch?v=YoHD9XEInc0"
+            target="_blank"
+          >
             YouTube
           </a>
-          <a class="a-button" href="https://en.wikipedia.org/wiki/Inception" target="_blank">
+          <a
+            class="a-button"
+            href="https://en.wikipedia.org/wiki/Inception"
+            target="_blank"
+          >
             Wikipedia
           </a>
         </div>
-      </div>
-    </section>
+      </section>
+      <p class="description">
+        A thief who steals corporate secrets through the use of dream-sharing
+        technology is given the inverse task of planting an idea into the mind
+        of a C.E.O., but his tragic past may doom the project and his team to
+        disaster.
+      </p>
 
-    <!-- Play Movie Button -->
-    <a href="#inception" class="play-button">▶ play The Movie</a>
+      <!-- Cast Section -->
+      <section class="cast">
+        <h3 class="movie-element-title">Cast</h3>
+        <div class="cast-list">
+          <div class="actor">
+            <img src="/assets/actors/mcconaughey.png" />
+            <p>Matthew McConaughey<br /><small>Cooper</small></p>
+          </div>
+          <div class="actor">
+            <img src="/assets/actors/hathaway.png" />
+            <p>Anne Hathaway<br /><small>Brand</small></p>
+          </div>
+          <div class="actor">
+            <img src="/assets/actors/chastain.png" />
+            <p>Jessica Chastain<br /><small>Murph</small></p>
+          </div>
+          <div class="actor">
+            <img src="/assets/actors/caine.png" />
+            <p>Michael Caine<br /><small>Professor Brand</small></p>
+          </div>
+          <div class="actor">
+            <img src="/assets/actors/dicaprio.png" />
+            <p>Leonardo DiCaprio<br /><small>Cobb</small></p>
+          </div>
+        </div>
+      </section>
+    </div>
 
     <!-- Hidden movie overlay -->
     <div id="inception" class="movie-overlay">
       <video controls>
-        <source src="/assets/videos/inception.mp4" type="video/mp4">
+        <source src="/assets/videos/inception.mp4" type="video/mp4" />
       </video>
       <a href="/movies/inception.html" class="close">✕</a>
     </div>
-
-    <p>
-      A thief who steals corporate secrets through the use of dream-sharing
-      technology is given the inverse task of planting an idea into the mind of
-      a C.E.O., but his tragic past may doom the project and his team to
-      disaster.
-    </p>
 
     <section>
       <!-- Reviews Table Section -->
@@ -94,33 +141,6 @@
           <td>Complex but rewarding.</td>
         </tr>
       </table>
-
-      <!-- Cast Section -->
-      <section class="cast">
-        <h3>Cast</h3>
-        <div class="cast-list">
-          <div>
-            <img src="/assets/actors/mcconaughey.png" />
-            <p>Matthew McConaughey<br /><small>Cooper</small></p>
-          </div>
-          <div>
-            <img src="/assets/actors/hathaway.png" />
-            <p>Anne Hathaway<br /><small>Brand</small></p>
-          </div>
-          <div>
-            <img src="/assets/actors/chastain.png" />
-            <p>Jessica Chastain<br /><small>Murph</small></p>
-          </div>
-          <div>
-            <img src="/assets/actors/caine.png" />
-            <p>Michael Caine<br /><small>Professor Brand</small></p>
-          </div>
-          <div>
-            <img src="/assets/actors/dicaprio.png" />
-            <p>Leonardo DiCaprio<br /><small>Cobb</small></p>
-          </div>
-        </div>
-      </section>
     </section>
   </main>
 

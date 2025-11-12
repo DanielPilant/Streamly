@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+
+<head>
+  <link rel="stylesheet" href="../style.css" />
+  <title>Dune</title>
+</head>
+
+<body id="dune-page">
+  <header>
+    <h1 class="movie-title">Dune</h1>
+  </header>
+  <nav>
+    <ul>
+      <li class="logo">
+        <a href="/main.html"
+          ><img src="../assets/photos/logo.png" alt="Login Icon"
+        /></a>
+      </li>
+
+      <li class="link-group">
+        <a href="../main.html">Home</a>
+        <a href="../categories/romance.html">Romance</a>
+        <a href="../categories/drama.html">Drama</a>
+        <a href="../categories/action.html">Action</a>
+        <a href="../categories/new_and_popular.html">New & Popular</a>
+      </li>
+    </ul>
+  </nav>
+  <main>
+    <div class="movie-content">
+      <div id="trailer-and-movie">
+        <!-- Trailer -->
+        <iframe
+          src="https://www.youtube.com/embed/n9xhJrPXop4"
+          title="Dune (2021) Trailer"
+          allowfullscreen
+        ></iframe>
+
+        <!-- Play Movie Button -->
+        <a href="#dune" class="play-button">▶ play The Movie</a>
+      </div>
+
+      <section class="movie-header">
+        <!-- Details -->
+        <div class="short-details">
+          <p>⭐ 8.0 / 10</p>
+          <p>2021</p>
+          <p>Sci-Fi, Adventure</p>
+          <p>2h 35m</p>
+        </div>
+
+        <div class="movie-links">
+          <a
+            class="a-button"
+            href="https://www.imdb.com/title/tt1160419/"
+            target="_blank"
+          >
+            IMDB
+          </a>
+          <a
+            class="a-button"
+            href="https://www.youtube.com/watch?v=n9xhJrPXop4"
+            target="_blank"
+          >
+            YouTube
+          </a>
+          <a
+            class="a-button"
+            href="https://en.wikipedia.org/wiki/Dune_(2021_film)"
+            target="_blank"
+          >
+            Wikipedia
+          </a>
+        </div>
+      </section>
+      <p class="description">
+        Paul Atreides, a gifted young noble, travels to the desert planet
+        Arrakis to secure his family’s future and the galaxy’s most valuable
+        resource, while confronting political betrayal, ancient prophecies, and
+        his emerging destiny.
+      </p>
+
+      <!-- Cast Section -->
+      <section class="cast">
+        <h3 class="movie-element-title">Cast</h3>
+        <div class="cast-list">
+          <div class="actor">
+            <img src="/assets/actors/temothe.jpg" />
+            <p>Timothée Chalamet<br /><small>Paul Atreides</small></p>
+          </div>
+          <div class="actor">
+            <img src="/assets/actors/rebecca.jpg" />
+            <p>Rebecca Ferguson<br /><small>Lady Jessica</small></p>
+          </div>
+          <div class="actor">
+            <img src="/assets/actors/isaac.jpg" />
+            <p>Oscar Isaac<br /><small>Duke Leto Atreides</small></p>
+          </div>
+          <div class="actor">
+            <img src="/assets/actors/zendaya.jpg" />
+            <p>Zendaya<br /><small>Chani</small></p>
+          </div>
+          <div class="actor">
+            <img src="/assets/actors/jason.jpg" />
+            <p>Jason Momoa<br /><small>Duncan Idaho</small></p>
+
+        </div>
+      </section>
+    </div>
+
+    <!-- Hidden movie overlay -->
+    <div id="dune" class="movie-overlay">
+      <video controls>
+        <source src="/assets/videos/dune.mp4" type="video/mp4" />
+      </video>
+      <a href="/movies/dune.html" class="close">✕</a>
+    </div>
+
+    <section>
+      <!-- Reviews Table Section -->
+      <h3>Reviews</h3>
+      <table class="reviews">
+        <tr>
+          <th>Reviewer</th>
+          <th>Rating</th>
+          <th>Comment</th>
+        </tr>
+        <tr>
+          <td>Rotten Tomatoes</td>
+          <td>83%</td>
+          <td>Epic, immersive, and visually stunning.</td>
+        </tr>
+        <tr>
+          <td>IMDB Users</td>
+          <td>8.0/10</td>
+          <td>Grand scale world-building and performances.</td>
+        </tr>
+        <tr>
+          <td>Metacritic</td>
+          <td>74/100</td>
+          <td>Ambitious and rewarding sci-fi.</td>
+        </tr>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Streamly. All rights reserved.</p>
+    <a href="../terms.html">Terms of Service</a>
+  </footer>
+</body>

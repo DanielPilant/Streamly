@@ -11,6 +11,8 @@
   --color-accent-active: #5e8eea;
   /* pressed state */
   --color-bg-light: #0f172a;
+  /* play movie button background */
+  --color-bg-dark: #0b1020;
   /* slate-900 surface */
   --color-border: #2a2f3a;
   /* subtle dark border */
@@ -29,8 +31,11 @@
    GENERAL STYLING
 ===================================================== */
 html {
-  background-image: url("assets/photos/star-wars-plzcoaffexgf4h81.jpg");
   scroll-padding-top: 70px;
+}
+
+body.main-pages {
+  background-image: url("assets/photos/star-wars-plzcoaffexgf4h81.jpg");
 }
 
 body {
@@ -46,7 +51,7 @@ body::before {
   position: fixed;
   inset: 0;
   z-index: -1;
-  background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(6, 2, 17, 0.98));
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.99));
 }
 
 header {
@@ -56,12 +61,11 @@ header {
 
 .a-button {
   background: var(--color-accent);
-  text-decoration: none;   /* rempve underline */
+  text-decoration: none; /* rempve underline */
   color: #0b1020;
   border: none;
   border-radius: 5px;
   padding: 7px 12px;
-  
 }
 
 .a-button:hover {
@@ -152,7 +156,11 @@ nav {
   left: 0;
   width: 100%;
   z-index: 1000;
-  background: linear-gradient(180deg, rgba(10, 0, 4, 0.92), rgba(0, 0, 0, 0.78));
+  background: linear-gradient(
+    180deg,
+    rgba(10, 0, 4, 0.92),
+    rgba(0, 0, 0, 0.78)
+  );
   backdrop-filter: blur(3px);
   border-bottom: 1px solid var(--color-border);
   box-shadow: 0 6px 18px var(--color-shadow);
@@ -161,12 +169,12 @@ nav {
 
 nav ul {
   list-style: none;
-  display: flex;      
-  align-items: center; 
+  display: flex;
+  align-items: center;
   margin: 0;
   padding: 0;
   width: 100%;
-  position: relative;  
+  position: relative;
 }
 
 nav ul li:first-child {
@@ -180,7 +188,7 @@ nav ul .link-group {
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  gap: 30px; 
+  gap: 30px;
 }
 
 nav li {
@@ -190,7 +198,7 @@ nav li {
 }
 
 nav li img {
-  width: 64px;  
+  width: 64px;
   height: 32px;
   object-fit: cover;
 }
@@ -216,7 +224,7 @@ nav a:active {
 
   nav ul .link-group {
     position: static;
-    transform: none;  
+    transform: none;
     justify-content: center;
     margin-top: 8px;
     gap: 20px;
@@ -332,42 +340,65 @@ p.messages {
   z-index: 1;
 }
 
-/* Responsive layout */
-@media (max-width: 900px) {
-  .movie {
-    flex: 1 1 45%;
-  }
-}
-
-@media (max-width: 600px) {
-  .movie {
-    flex: 0 0 100%;
-  }
-}
-
 /* =====================================================
    MOVIE DETAILS
 ===================================================== */
-.movie-header {
-  display: flex;
-  gap: 2rem;
-  align-items: center;
-  justify-content: center;
+.movie-title {
+  text-align: left;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 13%;
+  font-size: 5rem;
+  color: var(--color-text);
 }
 
-.movie-header iframe {
-  width: 50%;
-  border-radius: 8px;
+iframe {
+  width: 60%;
   aspect-ratio: 16 / 9;
   border: none;
+  border-radius: 10px;
 }
 
-.movie-details {
-  flex: 1;
-  background: #ffffff0d;
+.movie-content {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  grid-template-columns: 600px auto 600px;
+  grid-template-rows: minmax(100px, auto) 0.4fr 1fr;
+  margin-bottom: 3%;
+}
+
+.movie-content #trailer-and-movie {
+  grid-column: 1;
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.movie-content .movie-header {
+  grid-column: 1;
+  grid-row: 2;
+  display: flex;
+  width: 100%;
   /* subtle translucent card on dark */
-  padding: 2%;
-  border-radius: 3px;
+  justify-content: left;
+  align-items: center;
+  gap: 5%;
+}
+
+.movie-content .description {
+  grid-column: 1;
+  grid-row: 3;
+  width: 100%;
+  height: 100%;
+}
+
+.short-details {
+  display: flex;
+  gap: 1.5rem;
 }
 
 .movie-links {
@@ -386,6 +417,67 @@ p.messages {
 
 .movie-links button:active {
   background: var(--color-accent-active);
+}
+
+/*separate background img for every movie*/
+body#inception-page {
+  background-image: url("assets/movie_posters/incepion-page-poster.jpg");
+  background-size: cover;
+  background-position: center;
+}
+body#dune-page {
+  background-image: url("assets/movie_posters/dune-page-poster.jpg");
+  background-size: cover;
+  background-position: center;
+}
+body#anyone-but-you-page {
+  background-image: url("assets/movie_posters/aby-page-poster.jpg");
+  background-size: cover;
+  background-position: center;
+}
+/* =====================================================
+   CAST LIST
+===================================================== */
+.movie-content .cast {
+  display: flex;
+  flex-direction: column;
+  grid-column: 3;
+  grid-row: 1 / -1;
+  height: 100%;
+}
+
+.movie-element-title {
+  margin: 0;
+  font-size: 30px;
+  font-weight: lighter;
+}
+
+.movie-content .cast-list {
+  display: flex;
+  justify-content: right;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+}
+
+.actor {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  width: 20%;
+}
+
+.cast-list img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.cast-list p {
+  margin: 0;
+  font-size: 0.6em;
+  color: #9aa3b2;
 }
 
 /* =====================================================
@@ -413,36 +505,23 @@ p.messages {
 }
 
 /* =====================================================
-   CAST LIST
-===================================================== */
-.cast-list {
-  display: flex;
-  gap: 2rem;
-  flex-wrap: wrap;
-}
-
-.cast-list img {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.cast-list p {
-  margin: 0;
-  font-size: 0.9em;
-  color: #9aa3b2;
-}
-
-/* =====================================================
    PLAY BUTTON & OVERLAY
 ===================================================== */
 .play-button {
-  padding-top: 2%;
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: var(--color-accent);
+  background-color: var(--color-bg-dark);
   opacity: 0.9;
   text-decoration: none;
+  text-align: center;
+  border: 2px solid var(--color-accent);
+  border-radius: 10px;
+  width: 60%;
+}
+
+.play-button:hover {
+  opacity: 1;
+  color: var(--color-accent-hover);
 }
 
 .play-button:hover {
@@ -458,7 +537,7 @@ p.messages {
 .movie-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.95);
+  background: rgba(0, 0, 0, 0.95);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -473,7 +552,6 @@ p.messages {
   opacity: 1;
   pointer-events: all;
 }
-
 
 /* Fullscreen video */
 .movie-overlay video {
@@ -525,6 +603,7 @@ p.messages {
 }
 
 .terms-pdf {
+  width: 100%;
   flex: 1;
 }
 
@@ -541,7 +620,7 @@ p.messages {
   font-size: 1rem;
 }
 
-.terms-logo{
+.terms-logo {
   display: block;
   margin: 0 auto 20px auto;
   max-width: 75%;
@@ -571,13 +650,74 @@ footer a:active {
   color: var(--color-accent-active);
 }
 
-
-
 /* =====================================================
    RESPONSIVE ADJUSTMENTS FOR ALL PAGES
 ===================================================== */
 @media (max-width: 900px) {
   .terms-container {
+    flex-direction: column;
+  }
+}
+
+/* Movie Grid - Responsive layout */
+@media (max-width: 900px) {
+  .movie {
+    flex: 1 1 45%;
+  }
+}
+
+@media (max-width: 600px) {
+  .movie {
+    flex: 0 0 100%;
+  }
+}
+
+@media (max-width: 1450px) {
+  .movie-content {
+    grid-template-columns: 1fr;
+  }
+
+  .movie-content #trailer-and-movie {
+    grid-column: 1;
+    grid-row: 1;
+    width: 70%;
+  }
+  .movie-content .movie-header {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .movie-content .description {
+    grid-column: 1;
+    grid-row: 3;
+  }
+  .movie-content .cast {
+    grid-column: 1;
+    grid-row: 4;
+  }
+  .movie-content .cast-list {
+    justify-content: left;
+  }
+  .actor {
+    width: auto;
+    margin-right: 15px;
+  }
+}
+
+@media (max-width: 900px) {
+  .movie-title {
+    text-align: center;
+  }
+
+  .movie-content #trailer-and-movie {
+    grid-column: 1;
+    grid-row: 1;
+    width: 100%;
+    align-items: center;
+  }
+  .movie-content .movie-header {
+    grid-column: 1;
+    grid-row: 2;
+    display: flex;
     flex-direction: column;
   }
 }
