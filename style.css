@@ -440,6 +440,11 @@ body#anyone-but-you-page {
   background-size: cover;
   background-position: center;
 }
+body#civil-war-page {
+  background-image: url("assets/movie_posters/ca-page-poster.jpg");
+  background-size: cover;
+  background-position: center;
+}
 /* =====================================================
    CAST LIST
 ===================================================== */
