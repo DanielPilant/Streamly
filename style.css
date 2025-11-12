@@ -383,8 +383,8 @@ iframe {
   margin-inline: auto;
   display: grid;
   grid-template-columns:
-    minmax(260px, 1.5fr)
-    minmax(0, 1fr)
+    minmax(260px, 1.7fr)
+    minmax(0, 0.7fr)
     minmax(260px, 1.5fr);
   grid-template-rows: minmax(120px, auto) auto auto;
   gap: 1.5rem;
