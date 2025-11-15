@@ -4,6 +4,7 @@
 * {
   box-sizing: border-box;
 }
+
 :root {
   --color-text: #e5e7eb;
   /* light gray for dark UIs */
@@ -60,48 +61,74 @@ body::before {
 }
 
 header {
-  padding: 10px 0;
+  padding: 20px 0;
   text-align: center;
+  margin-bottom: 20px;
+}
+
+header h1 {
+  margin: 0 0 10px 0;
+}
+
+header p {
+  margin: 0;
+  color: #cbd5e1;
+  font-size: 1.1rem;
 }
 
 .a-button {
   background: var(--color-accent);
-  text-decoration: none; /* rempve underline */
+  text-decoration: none;
   color: #0b1020;
   border: none;
   border-radius: 5px;
-  padding: 7px 12px;
+  padding: 10px 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
 .a-button:hover {
   background: var(--color-accent-hover);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(138, 180, 248, 0.3);
 }
 
 .a-button:active {
   background: var(--color-accent-active);
-  transform: translateY(1px);
+  transform: translateY(0px);
 }
 
 /* =====================================================
    LOGIN SECTION
 ===================================================== */
 
-/*TODO - Fix margin*/
+body.login-page {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--color-bg-dark);
+}
+
 .login-section {
-  margin: 0 auto;
-  padding: 20px;
-  border: 1px solid var(--color-border);
-  border-radius: 8px;
+  width: min(450px, 90vw);
+  margin: 0;
+  padding: 40px;
+  border: 1px solid var(--color-accent);
+  border-radius: 12px;
   background-color: var(--color-bg-light);
-  box-shadow: 0 4px 12px var(--color-shadow);
-  border: 1px solid white;
-  width: 50em;
+  box-shadow: 0 8px 24px var(--color-shadow);
 }
 
 .login-section h1 {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+  margin-top: 0;
+  font-size: 2rem;
+  color: var(--color-accent);
 }
 
 .login-section label {
@@ -113,24 +140,28 @@ header {
 
 .login-section input {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
+  padding: 12px;
+  margin-bottom: 20px;
   border: 1px solid var(--color-border);
-  border-radius: 4px;
+  border-radius: 6px;
   box-sizing: border-box;
   background: #0b1222;
   color: var(--color-text);
+  font-size: 1rem;
 }
 
-/* Center the login section vertically and horizontally */
+.login-section input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(138, 180, 248, 0.1);
+}
 
-body.login-page {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background-color: var(--color-bg-dark);
-  margin: 0;
+.login-section button {
+  width: 100%;
+  padding: 12px;
+  font-size: 1.1rem;
+  margin-top: 10px;
+  cursor: pointer;
 }
 
 /* =====================================================
@@ -175,11 +206,9 @@ nav {
   left: 0;
   width: 100%;
   z-index: 1000;
-  background: linear-gradient(
-    180deg,
-    rgba(10, 0, 4, 0.92),
-    rgba(0, 0, 0, 0.78)
-  );
+  background: linear-gradient(180deg,
+      rgba(10, 0, 4, 0.92),
+      rgba(0, 0, 0, 0.78));
   backdrop-filter: blur(3px);
   border-bottom: 1px solid var(--color-border);
   box-shadow: 0 6px 18px var(--color-shadow);
@@ -235,7 +264,12 @@ nav a:hover {
 nav a:active {
   color: var(--color-accent-active);
 }
+
 @media (max-width: 768px) {
+  nav {
+    padding: 10px 5%;
+  }
+
   nav ul {
     flex-direction: column;
     align-items: flex-start;
@@ -246,7 +280,8 @@ nav a:active {
     transform: none;
     justify-content: center;
     margin-top: 8px;
-    gap: 20px;
+    gap: 15px;
+    font-size: 0.9rem;
   }
 
   nav li img {
@@ -287,7 +322,8 @@ p.messages {
   width: 80%;
   display: flex;
   flex-wrap: wrap;
-  gap: 2%;
+  column-gap: 2%;
+  row-gap: 2rem;
   justify-content: center;
   margin: 0 auto;
 }
@@ -300,6 +336,9 @@ p.messages {
   margin-bottom: 6%;
   position: relative;
   cursor: pointer;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s ease;
 }
 
 .movie img {
@@ -350,9 +389,9 @@ p.messages {
 }
 
 .movie:hover {
-  transform: scale(1.02);
+  transform: scale(1.05);
   border-color: var(--color-accent);
-  box-shadow: 0 4px 12px var(--color-shadow);
+  box-shadow: 0 8px 24px rgba(138, 180, 248, 0.2);
   z-index: 1;
 }
 
@@ -379,14 +418,12 @@ iframe {
   margin-inline: auto;
   display: grid;
   grid-template-columns:
-    minmax(260px, 1.7fr)
-    minmax(0, 0.7fr)
-    minmax(260px, 1.5fr);
+    minmax(260px, 1.7fr) minmax(0, 0.7fr) minmax(260px, 1.5fr);
   grid-template-rows: minmax(120px, auto) auto auto;
   gap: 1.5rem;
 }
 
-.movie-content #trailer-and-movie {
+.movie-content .trailer-and-movie {
   grid-column: 1;
   grid-row: 1;
   display: flex;
@@ -401,8 +438,14 @@ iframe {
   width: 100%;
   /* subtle translucent card on dark */
   justify-content: left;
-  align-items: center;
+  align-items: left;
   gap: 5%;
+
+  /* prevent text overflow */
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: clamp(0.7rem, 3vw, 1rem);
+  flex-direction: column;
 }
 
 .movie-content .description {
@@ -441,26 +484,31 @@ body#inception-page {
   background-size: cover;
   background-position: center;
 }
+
 body#dune-page {
   background-image: url("assets/movie_posters/dune-page-poster.jpg");
   background-size: cover;
   background-position: center;
 }
+
 body#anyone-but-you-page {
   background-image: url("assets/movie_posters/aby-page-poster.jpg");
   background-size: cover;
   background-position: center;
 }
+
 body#civil-war-page {
   background-image: url("assets/movie_posters/ca-page-poster.jpg");
   background-size: cover;
   background-position: center;
 }
+
 body#pirates-page {
   background-image: url("assets/movie_posters/potc-page-poster.jpg");
   background-size: cover;
   background-position: center;
 }
+
 /* =====================================================
    CAST LIST
 ===================================================== */
@@ -534,7 +582,7 @@ body#pirates-page {
    PLAY BUTTON & OVERLAY
 ===================================================== */
 .play-button {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   color: var(--color-accent);
   background-color: var(--color-bg-dark);
   opacity: 0.9;
@@ -543,11 +591,6 @@ body#pirates-page {
   border: 2px solid var(--color-accent);
   border-radius: 10px;
   width: 60%;
-}
-
-.play-button:hover {
-  opacity: 1;
-  color: var(--color-accent-hover);
 }
 
 .play-button:hover {
@@ -657,9 +700,14 @@ body#pirates-page {
 ===================================================== */
 footer {
   text-align: center;
-  margin-top: 50px;
+  margin-top: 80px;
+  padding: 30px 0;
   border-top: 1px solid var(--color-border);
   color: var(--color-text);
+}
+
+footer p {
+  margin: 0 0 10px 0;
 }
 
 footer a {
@@ -686,43 +734,67 @@ footer a:active {
 }
 
 /* Movie Grid - Responsive layout */
-@media (max-width: 900px) {
+/* Large tablets - 3 movies per row */
+@media (max-width: 1400px) {
   .movie {
-    flex: 1 1 45%;
+    flex: 0 0 31%;
   }
 }
 
-@media (max-width: 600px) {
+/* Tablets - 2 movies per row */
+@media (max-width: 1024px) {
+  .movies-container {
+    width: 90%;
+  }
+
   .movie {
-    flex: 0 0 100%;
+    flex: 0 0 48%;
   }
 }
+
+/* Phone screens - 1 movie per row */
+@media (max-width: 768px) {
+  .movies-container {
+    width: 95%;
+  }
+
+  .movie {
+    flex: 0 0 100%;
+    max-width: 400px;
+  }
+}
+
 
 @media (max-width: 1450px) {
   .movie-content {
     grid-template-columns: 1fr;
   }
 
-  .movie-content #trailer-and-movie {
+  .movie-content .trailer-and-movie {
     grid-column: 1;
     grid-row: 1;
     width: 70%;
   }
+
   .movie-content .movie-header {
     grid-column: 1;
     grid-row: 2;
   }
+
   .movie-content .description {
     grid-column: 1;
     grid-row: 3;
   }
+
   .movie-content .cast {
     grid-column: 1;
     grid-row: 4;
   }
+
   .movie-content .cast-list {
     justify-content: left;
   }
+
   .actor {
     width: auto;
     margin-right: 15px;
@@ -734,18 +806,21 @@ footer a:active {
     text-align: center;
   }
 
-  .movie-content #trailer-and-movie {
+  .movie-content .trailer-and-movie {
     grid-column: 1;
     grid-row: 1;
     width: 100%;
     align-items: center;
+    
+    justify-content: center;
   }
   .movie-content .movie-header {
-    grid-column: 1;
-    grid-row: 2;
-    display: flex;
-    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
   }
+  
+  
 }
 
 /* Media query for horizontal mobile devices */
@@ -757,11 +832,26 @@ footer a:active {
 }
 
 /* Login Page - Responsive adjustments */
-@media (max-width: 600px) {
-  body.login-page .login-section {
-    width: 90%;
-    min-width: unset;
-    border: none;
-    box-shadow: none;
+@media screen and (orientation: landscape) and (max-height: 600px) {
+  .login-section {
+    width: min(500px, 85vw);
+    padding: 30px;
+  }
+
+  .login-section h1 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+
+  .login-section input {
+    padding: 10px;
+    margin-bottom: 15px;
+  }
+}
+
+@media screen and (orientation: portrait) {
+  .login-section {
+    width: min(450px, 90vw);
+    padding: 40px;
   }
 }
