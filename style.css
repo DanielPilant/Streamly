@@ -506,6 +506,16 @@ body#failure-page {
   background-size: cover;
   background-position: center;
 }
+body#my-oxford-page {
+  background-image: url("assets/movie_posters/moxy-page-poster.jpg");
+  background-size: cover;
+  background-position: center;
+}
+body#the-fall-guy-page {
+  background-image: url("assets/movie_posters/tfg-page-poster.jpg");
+  background-size: cover;
+  background-position: center;
+}
 
 body#civil-war-page {
   background-image: url("assets/movie_posters/ca-page-poster.jpg");
