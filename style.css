@@ -206,9 +206,11 @@ nav {
   left: 0;
   width: 100%;
   z-index: 1000;
-  background: linear-gradient(180deg,
-      rgba(10, 0, 4, 0.92),
-      rgba(0, 0, 0, 0.78));
+  background: linear-gradient(
+    180deg,
+    rgba(10, 0, 4, 0.92),
+    rgba(0, 0, 0, 0.78)
+  );
   backdrop-filter: blur(3px);
   border-bottom: 1px solid var(--color-border);
   box-shadow: 0 6px 18px var(--color-shadow);
@@ -417,8 +419,10 @@ iframe {
   width: min(90%, var(--page-max));
   margin-inline: auto;
   display: grid;
-  grid-template-columns:
-    minmax(260px, 1.7fr) minmax(0, 0.7fr) minmax(260px, 1.5fr);
+  grid-template-columns: minmax(260px, 1.7fr) minmax(0, 0.7fr) minmax(
+      260px,
+      1.5fr
+    );
   grid-template-rows: minmax(120px, auto) auto auto;
   gap: 1.5rem;
 }
@@ -492,7 +496,13 @@ body#dune-page {
 }
 
 body#anyone-but-you-page {
-  background-image: url("assets/movie_posters/aby-page-poster.jpg");
+  background-image: url("assets/movie_posters/aby-page-poster_1.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+body#failure-page {
+  background-image: url("assets/movie_posters/failure_to_launch-page-poster_1.jpg");
   background-size: cover;
   background-position: center;
 }
@@ -764,7 +774,6 @@ footer a:active {
   }
 }
 
-
 @media (max-width: 1450px) {
   .movie-content {
     grid-template-columns: 1fr;
@@ -811,7 +820,7 @@ footer a:active {
     grid-row: 1;
     width: 100%;
     align-items: center;
-    
+
     justify-content: center;
   }
   .movie-content .movie-header {
@@ -819,8 +828,6 @@ footer a:active {
     text-align: center;
     align-items: center;
   }
-  
-  
 }
 
 /* Media query for horizontal mobile devices */

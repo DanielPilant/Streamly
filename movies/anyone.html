@@ -1,21 +1,22 @@
-```html
 <!DOCTYPE html>
 
 <head>
   <link rel="stylesheet" href="../style.css" />
   <title>Anyone But You</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 
 <body id="anyone-but-you-page">
   <header>
     <h1 class="movie-title">Anyone But You</h1>
   </header>
+
   <nav>
     <ul>
       <li class="logo">
-        <a href="../main.html"><img src="../assets/photos/logo.png" alt="Logo Icon" /></a>
+        <a href="../main.html"
+          ><img src="../assets/photos/logo.png" alt="Logo Icon"
+        /></a>
       </li>
 
       <li class="link-group">
@@ -27,14 +28,21 @@
       </li>
     </ul>
   </nav>
+
   <main>
     <div class="movie-content">
-      <div id="trailer-and-movie">
+      <div class="trailer-and-movie">
         <!-- Trailer -->
-        <iframe src="https://www.youtube.com/embed/B6uuIHpFkuo" title="Anyone But You Trailer" allowfullscreen></iframe>
+        <iframe
+          src="https://www.youtube.com/embed/ESEc6W2h9_k"
+          title="Anyone But You Trailer"
+          allowfullscreen
+        >
+        </iframe>
 
         <!-- Play Movie Button -->
         <a href="#anyone-but-you" class="play-button">▶ play The Movie</a>
+        <br />
       </div>
 
       <section class="movie-header">
@@ -47,17 +55,30 @@
         </div>
 
         <div class="movie-links">
-          <a class="a-button" href="https://www.imdb.com/title/tt21049206/" target="_blank">
+          <a
+            class="a-button"
+            href="https://www.imdb.com/title/tt21049206/"
+            target="_blank"
+          >
             IMDB
           </a>
-          <a class="a-button" href="https://www.youtube.com/watch?v=B6uuIHpFkuo" target="_blank">
+          <a
+            class="a-button"
+            href="https://www.youtube.com/watch?v=B6uuIHpFkuo"
+            target="_blank"
+          >
             YouTube
           </a>
-          <a class="a-button" href="https://en.wikipedia.org/wiki/Anyone_But_You" target="_blank">
+          <a
+            class="a-button"
+            href="https://en.wikipedia.org/wiki/Anyone_But_You"
+            target="_blank"
+          >
             Wikipedia
           </a>
         </div>
       </section>
+
       <p class="description">
         After a great first date goes wrong, Bea and Ben reunite at a
         destination wedding in Australia and fake a relationship to keep the
@@ -69,23 +90,23 @@
         <h3 class="movie-element-title">Cast</h3>
         <div class="cast-list">
           <div class="actor">
-            <img src="../assets/actors/sweeney.png" />
+            <img src="../assets/actors/sydney.jpg" alt="Sydney Sweeney" />
             <p>Sydney Sweeney<br /><small>Bea</small></p>
           </div>
           <div class="actor">
-            <img src="../assets/actors/powell.png" />
+            <img src="../assets/actors/glen.jpg" alt="Glen Powell" />
             <p>Glen Powell<br /><small>Ben</small></p>
           </div>
           <div class="actor">
-            <img src="../assets/actors/shipp.png" />
-            <p>Alexandra Shipp<br /><small>Claudia</small></p>
+            <img src="../assets/actors/charlee.jpg" alt="Charlee Fraser" />
+            <p>Charlee Fraser<br /><small>Margaret</small></p>
           </div>
           <div class="actor">
-            <img src="../assets/actors/gata.png" />
-            <p>GaTa<br /><small>Pete</small></p>
+            <img src="../assets/actors/dermot.jpg" alt="Dermot Mulroney" />
+            <p>Dermot Mulroney<br /><small>Leo</small></p>
           </div>
           <div class="actor">
-            <img src="../assets/actors/barnet.png" />
+            <img src="../assets/actors/darren.jpg" alt="Darren Barnet" />
             <p>Darren Barnet<br /><small>Jonathan</small></p>
           </div>
         </div>
@@ -93,7 +114,7 @@
     </div>
 
     <!-- Hidden movie overlay -->
-    <div class="anyone-but-you" class="movie-overlay">
+    <div id="anyone-but-you" class="movie-overlay">
       <video controls>
         <source src="../assets/videos/inception.mp4" type="video/mp4" />
       </video>
@@ -133,4 +154,3 @@
     <a href="../terms.html">Terms of Service</a>
   </footer>
 </body>
-```

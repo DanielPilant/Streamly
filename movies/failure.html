@@ -3,17 +3,20 @@
 <head>
   <link rel="stylesheet" href="../style.css" />
   <title>Failure to Launch</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 
-<body>
+<body id="failure-page">
   <header>
-    <h1>Failure to Launch (2006)</h1>
+    <h1 class="movie-title">Failure to Launch</h1>
   </header>
+
   <nav>
     <ul>
       <li class="logo">
-        <a href="../main.html"><img src="../assets/photos/logo.png" alt="Logo Icon" /></a>
+        <a href="../main.html"
+          ><img src="../assets/photos/logo.png" alt="Logo Icon"
+        /></a>
       </li>
 
       <li class="link-group">
@@ -25,22 +28,31 @@
       </li>
     </ul>
   </nav>
-  <main>
-    <section class="movie-header">
-      <!-- Trailer -->
-      <iframe
-        src="https://www.youtube.com/embed/evzBwXvqEl4"
-        title="Failure to Launch Trailer"
-        allowfullscreen
-      ></iframe>
 
-      <!-- Details -->
-      <div class="movie-details">
-        <h1>Failure to Launch</h1>
-        <p><strong>Year:</strong> 2006</p>
-        <p><strong>Genre:</strong> Romance, Comedy</p>
-        <p><strong>Duration:</strong> 1h 37m</p>
-        <p><strong>Rating:</strong> ⭐ 5.6 / 10</p>
+  <main>
+    <div class="movie-content">
+      <div class="trailer-and-movie">
+        <!-- Trailer -->
+        <iframe
+          src="https://www.youtube.com/embed/evzBwXvqEl4"
+          title="Failure to Launch Trailer"
+          allowfullscreen
+        >
+        </iframe>
+
+        <!-- Play Movie Button -->
+        <a href="#failure" class="play-button">▶ Play The Movie</a>
+        <br />
+      </div>
+
+      <section class="movie-header">
+        <!-- Details -->
+        <div class="short-details">
+          <p>⭐ 5.6 / 10</p>
+          <p>2006</p>
+          <p>Romance, Comedy</p>
+          <p>1h 37m</p>
+        </div>
 
         <div class="movie-links">
           <a
@@ -65,31 +77,51 @@
             Wikipedia
           </a>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Play Movie Button -->
-    <a href="#failure" class="play-button">▶ Play The Movie</a>
+      <p class="description">
+        <em>Failure to Launch</em> is a 2006 romantic comedy film starring
+        Matthew McConaughey and Sarah Jessica Parker. The story follows Tripp, a
+        35-year-old man who still lives with his parents. His parents hire
+        Paula, a professional motivator who helps men move out of their parents’
+        homes — but things get complicated when she unexpectedly falls in love
+        with her client. The film explores themes of independence, love, and the
+        difficulty of growing up.
+      </p>
+
+      <!-- Cast Section -->
+      <section class="cast">
+        <h3 class="movie-element-title">Cast</h3>
+        <div class="cast-list">
+          <div class="actor">
+            <img src="../assets/actors//mcconaughey.png" />
+            <p>Matthew McConaughey<br /><small>as Tripp</small></p>
+          </div>
+          <div class="actor">
+            <img src="../assets/actors/sarah.jpg" />
+            <p>Sarah Jessica Parker<br /><small>as Paula</small></p>
+          </div>
+          <div class="actor">
+            <img src="../assets/actors/zooey.jpg" />
+            <p>Zooey Deschanel<br /><small>as Kit</small></p>
+          </div>
+          <div class="actor">
+            <img src="../assets/actors/bradley.jpg" />
+            <p>Bradley Cooper<br /><small>as Demo</small></p>
+          </div>
+          <div class="actor">
+            <img src="../assets/actors/kathy.jpg" />
+            <p>Kathy Bates<br /><small>as Sue</small></p>
+          </div>
+        </div>
+      </section>
+    </div>
 
     <!-- Hidden movie overlay -->
     <div id="failure" class="movie-overlay">
-      <video
-        src="../assets/videos/inception.mp4"
-        controls
-        autoplay
-      ></video>
+      <video src="../assets/videos/inception.mp4" controls></video>
       <a href="../movies/failure.html" class="close">✕</a>
     </div>
-
-    <p>
-      <em>Failure to Launch</em> is a 2006 romantic comedy film starring Matthew
-      McConaughey and Sarah Jessica Parker. The story follows Tripp, a
-      35-year-old man who still lives with his parents. His parents hire Paula,
-      a professional motivator who helps men move out of their parents’ homes —
-      but things get complicated when she unexpectedly falls in love with her
-      client. The film explores themes of independence, love, and the difficulty
-      of growing up.
-    </p>
 
     <section>
       <!-- Reviews Table Section -->
@@ -121,40 +153,9 @@
           <td>Mixed reviews — appealing performances, uneven writing.</td>
         </tr>
       </table>
-
-      <!-- Cast Section -->
-      <section class="cast">
-        <h3>Cast</h3>
-        <div class="cast-list">
-          <div>
-            <img src="/assets/actors/matthew_mcconaughey.png" />
-            <p>Matthew McConaughey<br /><small>as Tripp</small></p>
-          </div>
-          <div>
-            <img src="/assets/actors/sarah_jessica_parker.png" />
-            <p>Sarah Jessica Parker<br /><small>as Paula</small></p>
-          </div>
-          <div>
-            <img src="/assets/actors/zoey_deschanel.png" />
-            <p>Zooey Deschanel<br /><small>as Kit</small></p>
-          </div>
-          <div>
-            <img src="/assets/actors/bradley_cooper.png" />
-            <p>Bradley Cooper<br /><small>as Demo</small></p>
-          </div>
-          <div>
-            <img src="/assets/actors/justin_bartha.png" />
-            <p>Justin Bartha<br /><small>as Ace</small></p>
-          </div>
-          <div>
-            <img src="/assets/actors/kathy_bates.png" />
-            <p>Kathy Bates<br /><small>as Sue</small></p>
-          </div>
-        </div>
-      </section>
     </section>
   </main>
-  
+
   <footer>
     <p>&copy; 2025 Streamly. All rights reserved.</p>
     <a href="../terms.html">Terms of Service</a>
