@@ -2,9 +2,10 @@
    GLOBAL THEME VARIABLES
 ===================================================== */
 * {
-  box-sizing: border-box;
+  box-sizing: border-box; /* Include padding and border in element's total width and height for easier calculations */
 }
 
+/* Variables for reusable colors and sizes */
 :root {
   --color-text: #e5e7eb;
   /* light gray for dark UIs */
@@ -29,6 +30,7 @@
   --page-max: 2000px;
 }
 
+/* Smooth transitions for interactive elements -- apply to all properties */
 * {
   transition: all var(--transition-speed) ease;
 }
@@ -37,27 +39,29 @@
    GENERAL STYLING
 ===================================================== */
 html {
-  scroll-padding-top: 70px;
+  scroll-padding-top: 70px; /* Offset for fixed nav bar */
 }
 
 body.main-pages {
-  background-image: url("assets/photos/star-wars-plzcoaffexgf4h81.jpg");
+  background-image: url("assets/photos/star-wars-plzcoaffexgf4h81.jpg"); /* Background image for main pages */
+  background-size: cover; 
 }
 
 body {
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
-  margin: 56px 30px 20px 30px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif; /* Stack of preferred fonts */
+  margin: 56px 30px 20px 30px; /* Top margin to accommodate fixed nav bar */
+  padding: 0;
   line-height: 1.6;
   color: var(--color-text);
 }
 
+/* Center content and limit max width */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   z-index: -1;
-  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.99));
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.99)); /* Will be under the real background image */
 }
 
 header {
@@ -68,7 +72,10 @@ header {
 
 header h1 {
   margin: 0 0 10px 0;
+  font-size: 2rem;
+  color: var(--color-text);
 }
+
 
 header p {
   margin: 0;
@@ -83,20 +90,19 @@ header p {
   border: none;
   border-radius: 5px;
   padding: 10px 20px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s ease;
+  font-weight: 600; /* Semi-bold */
+  cursor: pointer; /* The cursor changes to a pointer on hover */
 }
 
 .a-button:hover {
-  background: var(--color-accent-hover);
-  transform: translateY(-2px);
+  background: var(--color-accent-hover); /* Lighter on hover */
+  transform: translateY(-2px); /* Slightly raise the button on hover */
   box-shadow: 0 4px 12px rgba(138, 180, 248, 0.3);
 }
 
 .a-button:active {
   background: var(--color-accent-active);
-  transform: translateY(0px);
+  transform: translateY(0px); /* Return to original position on click */
 }
 
 /* =====================================================
@@ -107,16 +113,14 @@ header p {
 body.login-page {
   margin: 0;
   padding: 0;
-  display: flex;
+  display: flex; /* Use flexbox for centering */
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  background-color: var(--color-bg-dark);
+  min-height: 100vh; /* 100% of viewport height */
 }
 
 .login-section {
-  width: min(450px, 90vw);
-  margin: 0;
+  width: min(450px, 90vw); /* don't exceed 450px, but be responsive */
   padding: 40px;
   border: 1px solid var(--color-accent);
   border-radius: 12px;
@@ -127,16 +131,14 @@ body.login-page {
 .login-section h1 {
   text-align: center;
   margin-bottom: 30px;
-  margin-top: 0;
-  font-size: 2rem;
+  margin-top: 0; /* Remove default top margin */
   color: var(--color-accent);
 }
 
 .login-section label {
-  display: block;
+  display: block; /* Make labels block elements for better spacing (will take is own line) */
   margin-bottom: 8px;
   font-weight: bold;
-  color: var(--color-text);
 }
 
 .login-section input {
@@ -145,14 +147,13 @@ body.login-page {
   margin-bottom: 20px;
   border: 1px solid var(--color-border);
   border-radius: 6px;
-  box-sizing: border-box;
   background: #0b1222;
   color: var(--color-text);
   font-size: 1rem;
 }
 
 .login-section input:focus {
-  outline: none;
+  outline: none; /* Remove default outline when focused */
   border-color: var(--color-accent);
   box-shadow: 0 0 0 3px rgba(138, 180, 248, 0.1);
 }
@@ -162,28 +163,28 @@ body.login-page {
   padding: 12px;
   font-size: 1.1rem;
   margin-top: 10px;
-  cursor: pointer;
+  cursor: pointer; /* The cursor changes to a pointer on hover */
 }
 
 /* =====================================================
    PROFILE SECTION
 ===================================================== */
 #profile_info {
-  display: grid;
-  justify-items: center;
-  grid-template-columns: 1fr 2fr;
+  display: grid; /* Use grid layout for profile info */
+  justify-items: center; 
+  grid-template-columns: 1fr 2fr; /* Two columns: photo and info (with mail and name) */
   align-items: center;
-  gap: 5%;
-  width: fit-content;
+  gap: 5%; /* Gap between columns */
+  width: fit-content;  /* Adjust width to content - so the profile section will be in center */
   margin: 0 auto;
   padding: 2%;
 }
 
 #profile_photo {
-  max-width: 150px;
+  max-width: 150px; /* Limit max width */
   border: 1px solid var(--color-border);
-  border-radius: 50%;
-  object-fit: cover;
+  border-radius: 50%; /* Circular photo */
+  object-fit: cover; /* Cover the area without distortion */
   width: 80%;
 }
 
@@ -205,57 +206,43 @@ nav {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  z-index: 1000;
-  background: linear-gradient(
-    180deg,
-    rgba(10, 0, 4, 0.92),
-    rgba(0, 0, 0, 0.78)
-  );
-  backdrop-filter: blur(3px);
+  width: 100%; 
+  z-index: 1000; /* Ensure nav is on top of other content */
+  background: linear-gradient(180deg, rgba(10, 0, 4, 0.92), rgba(0, 0, 0, 0.78)); /* 180 meaning top to bottom */
+  backdrop-filter: blur(3px); /* Slight blur for frosted glass effect */
   border-bottom: 1px solid var(--color-border);
   box-shadow: 0 6px 18px var(--color-shadow);
   padding: 12px 2%;
 }
 
 nav ul {
-  list-style: none;
-  display: flex;
+  list-style: none; /* Remove default list styling */
+  display: flex; 
   align-items: center;
   margin: 0;
   padding: 0;
   width: 100%;
-  position: relative;
+  position: relative; /* Position relative for absolute positioning of centered links */
 }
 
-nav ul li:first-child {
-  display: flex;
-  align-items: center;
-}
 
-/* Center the other links */
+/* Center the other links (not logo) */
 nav ul .link-group {
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 50%; /* Move to start in the center then adjust with transform to truly center */
+  transform: translateX(-50%); 
   display: flex;
-  gap: 30px;
+  gap: 30px; /* Gap between centered links */
 }
 
-nav li {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-nav li img {
+nav li img { /* Logo image styling */
   width: 64px;
   height: 32px;
   object-fit: cover;
 }
 
 nav a {
-  text-decoration: none;
+  text-decoration: none; /* Remove underline from links */
   color: var(--color-accent);
   font-weight: bold;
 }
@@ -271,10 +258,6 @@ nav a:active {
 /* =====================================================
    HEADINGS
 ===================================================== */
-h1 {
-  font-size: 2rem;
-  color: var(--color-text);
-}
 
 h2 {
   font-size: 1.5rem;
@@ -289,7 +272,7 @@ h3 {
 }
 
 p.messages {
-  font-family: "Dancing Script", cursive;
+  font-family: "Dancing Script", cursive; 
   font-size: 1.2rem;
 }
 
@@ -300,49 +283,42 @@ p.messages {
   width: 80%;
   display: flex;
   flex-wrap: wrap;
-  column-gap: 2%;
-  row-gap: 2rem;
+  gap: 1.5rem; /* Gap between movie items */
   justify-content: center;
   margin: 0 auto;
 }
 
 .movie {
-  flex: 0 0 22%;
+  flex-basis: 22%; /* Four movies per row - without shrinking or growing */
   border: 1px solid var(--color-border);
-  box-sizing: border-box;
-  aspect-ratio: 9 / 16;
-  margin-bottom: 6%;
+  aspect-ratio: 9 / 16; /* Standard movie poster ratio */
   position: relative;
-  cursor: pointer;
   border-radius: 8px;
-  overflow: hidden;
-  transition: all 0.3s ease;
+  overflow: hidden; /* Ensure child elements don't overflow the rounded corners */
 }
 
 .movie img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  display: block;
+  object-fit: cover; /* Cover the entire movie container */
 }
 
 .details-list {
-  list-style: none;
+  list-style: none; /* Remove default list styling */
   padding: 0;
   color: #c7d2fe;
   font-size: 0.7em;
 }
 
 .movie-info {
-  position: absolute;
-  inset: 0;
+  position: absolute; /* Overlay info on top of movie poster */
+  inset: 0; /* Cover entire movie container, it's like setting top:0; right:0; bottom:0; left:0; */
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
   background: var(--color-overlay);
   color: #e9efff;
-  opacity: 0;
+  opacity: 0; /* Hidden by default */
   text-align: center;
   padding: 10px;
 }
@@ -358,6 +334,8 @@ p.messages {
   color: #c7d2fe;
 }
 
+/* Hover effects for movie items - Make info visible on hover and image slightly transparent and darkened */
+
 .movie:hover img {
   opacity: 0.6;
 }
@@ -370,35 +348,33 @@ p.messages {
   transform: scale(1.05);
   border-color: var(--color-accent);
   box-shadow: 0 8px 24px rgba(138, 180, 248, 0.2);
-  z-index: 1;
 }
 
 /* =====================================================
    MOVIE DETAILS
 ===================================================== */
 .movie-title {
-  width: min(90%, var(--page-max));
+  width: min(90%, var(--page-max)); /* Limit max width */
   text-align: left;
   margin: 0 auto;
   margin-top: 15rem;
-  font-size: clamp(1.8rem, 4vw + 0.5rem, 4rem);
+  font-size: clamp(1.8rem, 4vw + 0.5rem, 4rem); /* Responsive font size - min 1.8rem, max 4rem and scales with viewport width */
 }
 
 iframe {
   width: 60%;
   aspect-ratio: 16 / 9;
-  border: none;
+  border: none; /* Remove default border */
   border-radius: 10px;
 }
 
 .movie-content {
   width: min(90%, var(--page-max));
-  margin-inline: auto;
+  margin-inline: auto; /* Center horizontally */
   display: grid;
-  grid-template-columns: minmax(260px, 1.7fr) minmax(0, 0.7fr) minmax(
-      260px,
-      1.5fr
-    );
+  /* Three columns: trailer & movie details, spacer (without nothing), and cast */
+  grid-template-columns: minmax(260px, 1.7fr) minmax(0, 0.7fr) minmax(260px, 1.5fr); 
+  /* Three rows: trailer & movie, movie header, description */
   grid-template-rows: minmax(120px, auto) auto auto;
   gap: 1.5rem;
 }
@@ -416,15 +392,14 @@ iframe {
   grid-row: 2;
   display: flex;
   width: 100%;
-  /* subtle translucent card on dark */
   justify-content: left;
   align-items: left;
   gap: 5%;
 
-  /* prevent text overflow */
+  /* prevent text overflow so it will not be like 7.5/ then new line and then 10 */
   white-space: nowrap;
   overflow: hidden;
-  font-size: clamp(0.7rem, 3vw, 1rem);
+  font-size: clamp(0.7rem, 3vw, 1rem); /* Responsive font size - min 0.7rem, max 1rem and scales with viewport width */
   flex-direction: column;
 }
 
@@ -458,7 +433,7 @@ iframe {
   background: var(--color-accent-active);
 }
 
-/*separate background img for every movie*/
+/* Separate background img for every movie */
 body#inception-page {
   background-image: url("assets/movie_posters/incepion-page-poster.jpg");
   background-size: cover;
@@ -505,17 +480,15 @@ body#pirates-page {
   background-position: center;
 }
 
-/* =====================================================
-   CAST LIST
-===================================================== */
 .movie-content .cast {
   display: flex;
   flex-direction: column;
   grid-column: 3;
-  grid-row: 1 / 3;
-  align-self: end;
+  grid-row: 1 / 3; /* Span two rows: trailer & movie and movie header */
+  align-self: end; /* Align cast list to the bottom */
 }
 
+/* The "cast" section title */
 .movie-element-title {
   margin: 0;
   font-size: 30px;
@@ -540,10 +513,11 @@ body#pirates-page {
 .cast-list img {
   width: 80px;
   height: 80px;
-  border-radius: 50%;
-  object-fit: cover;
+  border-radius: 50%; /* Circular actor photos */
+  object-fit: cover; /* Cover the area without distortion */
 }
 
+/* Actor name styling */
 .cast-list p {
   margin: 0;
   font-size: 0.6em;
@@ -555,22 +529,24 @@ body#pirates-page {
 ===================================================== */
 .reviews {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: collapse; /* Remove space between table cells */
   margin: 1rem 0;
   text-align: center;
   color: var(--color-text);
 }
 
-.reviews th,
+/* Table cells */
 .reviews td {
   border: 1px solid var(--color-border);
   padding: 0.5rem;
   background: #0b1222;
 }
 
+/* Table header */
 .reviews th {
   background: #111827;
-  /* darker header row */
+  border: 1px solid var(--color-border);
+  padding: 0.8rem;
   color: #cbd5e1;
 }
 
@@ -581,12 +557,12 @@ body#pirates-page {
   font-size: 1.2rem;
   color: var(--color-accent);
   background-color: var(--color-bg-dark);
-  opacity: 0.9;
-  text-decoration: none;
+  text-decoration: none; /* Remove underline */
   text-align: center;
   border: 2px solid var(--color-accent);
   border-radius: 10px;
   width: 60%;
+  opacity: 0.8;
 }
 
 .play-button:hover {
@@ -606,14 +582,13 @@ body#pirates-page {
   display: flex;
   justify-content: center;
   align-items: center;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-  z-index: 9999;
+  opacity: 0; /* Hidden by default */
+  pointer-events: none; /* Disable interactions when hidden */
+  z-index: 9999; /* On top of all other content - even nav bar */
 }
 
 /* Show overlay when targeted */
-.movie-overlay:target {
+.movie-overlay:target { /* When the overlay is targeted via URL hash */
   opacity: 1;
   pointer-events: all;
 }
@@ -625,6 +600,7 @@ body#pirates-page {
   border-radius: 8px;
 }
 
+/* Close button */
 .close {
   position: absolute;
   top: 30px;
@@ -657,7 +633,7 @@ body#pirates-page {
 }
 
 .terms-text {
-  flex: 1;
+  flex: 1; /* Its like flex-grow:1; flex-shrink:1; flex-basis:0; */
   padding: 20px;
   color: var(--color-text);
 }
@@ -668,7 +644,7 @@ body#pirates-page {
 
 .terms-pdf {
   width: 100%;
-  flex: 1;
+  flex: 1; /* Its like flex-grow:1; flex-shrink:1; flex-basis:0; */
 }
 
 .terms-pdf embed {
@@ -702,12 +678,12 @@ footer {
 }
 
 footer p {
-  margin: 0 0 10px 0;
+  margin: 0 0 10px 0; /* 0 top, right, left; 10px bottom */
 }
 
 footer a {
   color: var(--color-accent);
-  text-decoration: none;
+  text-decoration: none; /* Remove underline */
   display: inline-block;
 }
 
@@ -723,49 +699,53 @@ footer a:active {
    RESPONSIVE ADJUSTMENTS FOR ALL PAGES
 ===================================================== */
 @media (max-width: 900px) {
-  .terms-container {
+  .terms-container { /* Stack vertically on smaller screens */
     flex-direction: column;
   }
 }
 
 /* Movie Grid - Responsive layout */
+
 /* Large tablets - 3 movies per row */
-@media (max-width: 1350px) {
+@media (max-width: 1200px) {
   .movie {
-    flex: 0 0 31%;
+    flex: 0 0 30%;
+  }
+  
+  .movies-container {
+    width: 90%;
   }
 }
 
 /* Tablets - 2 movies per row */
-@media (max-width: 1024px) {
-  .movies-container {
-    width: 90%;
-  }
-
+@media (max-width: 800px) {
   .movie {
     flex: 0 0 48%;
+  }
+  
+  .movies-container {
+    width: 85%;
   }
 }
 
 /* Phone screens - 1 movie per row */
-@media (max-width: 768px) {
-  .movies-container {
-    width: 95%;
-  }
-
+@media (max-width: 650px) {
   .movie {
     flex: 0 0 100%;
-    max-width: 400px;
+  }
+  .movies-container {
+    width: 70%;
   }
 }
 
 
+/* Movie Details Page - Responsive layout */
 @media (max-width: 1350px) {
   .movie-content {
     grid-template-columns: 1fr;
   }
 
-  .movie-content .trailer-an  d-movie {
+  .movie-content .trailer-and-movie {
     grid-column: 1;
     grid-row: 1;
     width: 70%;
@@ -796,6 +776,7 @@ footer a:active {
   }
 }
 
+/* Small tablets and phones */
 @media (max-width: 900px) {
   .movie-title {
     text-align: center;
@@ -806,7 +787,6 @@ footer a:active {
     grid-row: 1;
     width: 100%;
     align-items: center;
-
     justify-content: center;
   }
   .movie-content .movie-header {
@@ -816,35 +796,36 @@ footer a:active {
   }
 }
 
-/* Media query for horizontal mobile devices */
+/* Media query for horizontal mobile devices - adjust movie title size and margin, because of limited height */
 @media (max-width: 1200px) and (orientation: landscape) {
   .movie-title {
     font-size: clamp(1.5rem, 6vw + 0.5rem, 3rem);
-    margin-top: 1rem;
+    margin-top: 0;
   }
 }
 
 /* Login Page - Responsive adjustments */
 @media screen and (orientation: landscape) and (max-height: 600px) {
   .login-section {
-    width: min(500px, 85vw);
+    width: min(500px, 85vw); /* Slightly wider for landscape */
     padding: 30px;
   }
 
   .login-section h1 {
-    font-size: 1.5rem;
+    font-size: 1.5rem; /* Slightly smaller font size */
     margin-bottom: 20px;
   }
 
   .login-section input {
-    padding: 10px;
-    margin-bottom: 15px;
+    padding: 10px; /* Slightly smaller padding */
+    margin-bottom: 15px; /* Reduced margin */
   }
 }
 
+/* Login Page - Portrait orientation - so it will look good on tall phones */
 @media screen and (orientation: portrait) {
   .login-section {
-    width: min(450px, 90vw);
+    width: min(450px, 85vw);
     padding: 40px;
   }
 }
@@ -853,23 +834,30 @@ footer a:active {
 /* Navigation Bar - Responsive adjustments */
 @media (max-width: 768px) {
   nav {
-    padding: 10px 5%;
+    padding: 10px 5%; /* Adjust padding for smaller screens */
   }
 
   nav ul {
-    flex-direction: column;
+    flex-direction: column; /* So the logo will be on top and the links below */
     align-items: flex-start;
   }
 
   nav ul .link-group {
     position: static;
     transform: none;
-    justify-content: center;
     margin-top: 8px;
     gap: 15px;
     font-size: 0.9rem;
+
+
+    /* Center the other links (not logo) */
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
   }
 
+  /* Reduce logo size on smaller screens */
   nav li img {
     width: 40px;
     height: auto;
