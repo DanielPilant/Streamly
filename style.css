@@ -43,12 +43,13 @@ html {
 }
 
 body.main-pages {
-  background-image: url("assets/photos/star-wars-plzcoaffexgf4h81.jpg"); /* Background image for main pages */
-  background-size: cover; 
+  background-image: url("assets/photos/default_background.jpg"); /* Background image for main pages */
+  background-size: cover;
 }
 
 body {
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif; /* Stack of preferred fonts */
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif; /* Stack of preferred fonts */
   margin: 56px 30px 20px 30px; /* Top margin to accommodate fixed nav bar */
   padding: 0;
   line-height: 1.6;
@@ -61,7 +62,10 @@ body::before {
   position: fixed;
   inset: 0;
   z-index: -1;
-  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.99)); /* Will be under the real background image */
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.4),
+    rgba(0, 0, 0, 0.99)
+  ); /* Will be under the real background image */
 }
 
 header {
@@ -75,7 +79,6 @@ header h1 {
   font-size: 2rem;
   color: var(--color-text);
 }
-
 
 header p {
   margin: 0;
@@ -108,7 +111,6 @@ header p {
 /* =====================================================
    LOGIN SECTION
 ===================================================== */
-
 
 body.login-page {
   margin: 0;
@@ -171,11 +173,11 @@ body.login-page {
 ===================================================== */
 #profile_info {
   display: grid; /* Use grid layout for profile info */
-  justify-items: center; 
+  justify-items: center;
   grid-template-columns: 1fr 2fr; /* Two columns: photo and info (with mail and name) */
   align-items: center;
   gap: 5%; /* Gap between columns */
-  width: fit-content;  /* Adjust width to content - so the profile section will be in center */
+  width: fit-content; /* Adjust width to content - so the profile section will be in center */
   margin: 0 auto;
   padding: 2%;
 }
@@ -206,9 +208,13 @@ nav {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%; 
+  width: 100%;
   z-index: 1000; /* Ensure nav is on top of other content */
-  background: linear-gradient(180deg, rgba(10, 0, 4, 0.92), rgba(0, 0, 0, 0.78)); /* 180 meaning top to bottom */
+  background: linear-gradient(
+    180deg,
+    rgba(10, 0, 4, 0.92),
+    rgba(0, 0, 0, 0.78)
+  ); /* 180 meaning top to bottom */
   backdrop-filter: blur(3px); /* Slight blur for frosted glass effect */
   border-bottom: 1px solid var(--color-border);
   box-shadow: 0 6px 18px var(--color-shadow);
@@ -217,7 +223,7 @@ nav {
 
 nav ul {
   list-style: none; /* Remove default list styling */
-  display: flex; 
+  display: flex;
   align-items: center;
   margin: 0;
   padding: 0;
@@ -225,17 +231,17 @@ nav ul {
   position: relative; /* Position relative for absolute positioning of centered links */
 }
 
-
 /* Center the other links (not logo) */
 nav ul .link-group {
   position: absolute;
   left: 50%; /* Move to start in the center then adjust with transform to truly center */
-  transform: translateX(-50%); 
+  transform: translateX(-50%);
   display: flex;
   gap: 30px; /* Gap between centered links */
 }
 
-nav li img { /* Logo image styling */
+nav li img {
+  /* Logo image styling */
   width: 64px;
   height: 32px;
   object-fit: cover;
@@ -272,7 +278,7 @@ h3 {
 }
 
 p.messages {
-  font-family: "Dancing Script", cursive; 
+  font-family: "Dancing Script", cursive;
   font-size: 1.2rem;
 }
 
@@ -358,7 +364,11 @@ p.messages {
   text-align: left;
   margin: 0 auto;
   margin-top: 15rem;
-  font-size: clamp(1.8rem, 4vw + 0.5rem, 4rem); /* Responsive font size - min 1.8rem, max 4rem and scales with viewport width */
+  font-size: clamp(
+    1.8rem,
+    4vw + 0.5rem,
+    4rem
+  ); /* Responsive font size - min 1.8rem, max 4rem and scales with viewport width */
 }
 
 iframe {
@@ -373,7 +383,10 @@ iframe {
   margin-inline: auto; /* Center horizontally */
   display: grid;
   /* Three columns: trailer & movie details, spacer (without nothing), and cast */
-  grid-template-columns: minmax(260px, 1.7fr) minmax(0, 0.7fr) minmax(260px, 1.5fr); 
+  grid-template-columns: minmax(260px, 1.7fr) minmax(0, 0.7fr) minmax(
+      260px,
+      1.5fr
+    );
   /* Three rows: trailer & movie, movie header, description */
   grid-template-rows: minmax(120px, auto) auto auto;
   gap: 1.5rem;
@@ -399,7 +412,11 @@ iframe {
   /* prevent text overflow so it will not be like 7.5/ then new line and then 10 */
   white-space: nowrap;
   overflow: hidden;
-  font-size: clamp(0.7rem, 3vw, 1rem); /* Responsive font size - min 0.7rem, max 1rem and scales with viewport width */
+  font-size: clamp(
+    0.7rem,
+    3vw,
+    1rem
+  ); /* Responsive font size - min 0.7rem, max 1rem and scales with viewport width */
   flex-direction: column;
 }
 
@@ -588,7 +605,8 @@ body#pirates-page {
 }
 
 /* Show overlay when targeted */
-.movie-overlay:target { /* When the overlay is targeted via URL hash */
+.movie-overlay:target {
+  /* When the overlay is targeted via URL hash */
   opacity: 1;
   pointer-events: all;
 }
@@ -699,7 +717,8 @@ footer a:active {
    RESPONSIVE ADJUSTMENTS FOR ALL PAGES
 ===================================================== */
 @media (max-width: 900px) {
-  .terms-container { /* Stack vertically on smaller screens */
+  .terms-container {
+    /* Stack vertically on smaller screens */
     flex-direction: column;
   }
 }
@@ -711,7 +730,7 @@ footer a:active {
   .movie {
     flex: 0 0 30%;
   }
-  
+
   .movies-container {
     width: 90%;
   }
@@ -722,7 +741,7 @@ footer a:active {
   .movie {
     flex: 0 0 48%;
   }
-  
+
   .movies-container {
     width: 85%;
   }
@@ -737,7 +756,6 @@ footer a:active {
     width: 70%;
   }
 }
-
 
 /* Movie Details Page - Responsive layout */
 @media (max-width: 1350px) {
@@ -830,7 +848,6 @@ footer a:active {
   }
 }
 
-
 /* Navigation Bar - Responsive adjustments */
 @media (max-width: 768px) {
   nav {
@@ -848,7 +865,6 @@ footer a:active {
     margin-top: 8px;
     gap: 15px;
     font-size: 0.9rem;
-
 
     /* Center the other links (not logo) */
     width: 100%;
