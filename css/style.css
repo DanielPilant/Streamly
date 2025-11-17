@@ -1,0 +1,347 @@
+/* global vars for all pages */
+* {
+  box-sizing: border-box; /* Include padding and border in element's total width and height for easier calculations */
+}
+
+/* Variables for reusable colors and sizes */
+:root {
+  --color-text: #e5e7eb;
+  /* light gray for dark UIs */
+  --color-accent: #8ab4f8;
+  /* blue accent (modern dark) */
+  --color-accent-hover: #a7c3ff;
+  /* lighter on hover */
+  --color-accent-active: #5e8eea;
+  /* pressed state */
+  --color-bg-light: #0f172a;
+  /* play movie button background */
+  --color-bg-dark: #0b1020;
+  /* slate-900 surface */
+  --color-border: #2a2f3a;
+  /* subtle dark border */
+  --color-shadow: #00000066;
+  /* stronger shadow on dark */
+  --color-overlay: rgba(0, 0, 0, 0.6);
+  /* unchanged */
+  --transition-speed: 0.3s;
+  /* maximum size for page content */
+  --page-max: 2000px;
+}
+
+
+/* global styles for all pages */
+
+* {
+  transition: all var(--transition-speed) ease; /* Smooth transitions for interactive elements -- apply to all properties */
+}
+
+html {
+  scroll-padding-top: 70px; /* Offset for fixed nav bar */
+}
+
+body.main-pages {
+  background-image: url("../assets/photos/default_background.jpg"); /* Background image for main pages */
+  background-size: cover;
+}
+
+body {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif; /* Stack of preferred fonts */
+  margin: 56px 30px 20px 30px; /* Top margin to accommodate fixed nav bar */
+  padding: 0;
+  line-height: 1.6;
+  color: var(--color-text);
+}
+
+/* Center content and limit max width */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.4),
+    rgba(0, 0, 0, 0.99)
+  ); /* Will be under the real background image */
+}
+
+header {
+  padding: 20px 0;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+header h1 {
+  margin: 0 0 10px 0;
+  font-size: 2rem;
+  color: var(--color-text);
+}
+
+header p {
+  margin: 0;
+  color: #cbd5e1;
+  font-size: 1.1rem;
+}
+
+.a-button {
+  background: var(--color-accent);
+  text-decoration: none;
+  color: #0b1020;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-weight: 600; /* Semi-bold */
+  cursor: pointer; /* The cursor changes to a pointer on hover */
+}
+
+.a-button:hover {
+  background: var(--color-accent-hover); /* Lighter on hover */
+  transform: translateY(-2px); /* Slightly raise the button on hover */
+  box-shadow: 0 4px 12px rgba(138, 180, 248, 0.3);
+}
+
+.a-button:active {
+  background: var(--color-accent-active);
+  transform: translateY(0px); /* Return to original position on click */
+}
+
+/* navigation bar styles */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Ensure nav is on top of other content */
+  background: linear-gradient(
+    180deg,
+    rgba(10, 0, 4, 0.92),
+    rgba(0, 0, 0, 0.78)
+  ); /* 180 meaning top to bottom */
+  backdrop-filter: blur(3px); /* Slight blur for frosted glass effect */
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: 0 6px 18px var(--color-shadow);
+  padding: 12px 2%;
+}
+
+nav ul {
+  list-style: none; /* Remove default list styling */
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  position: relative; /* Position relative for absolute positioning of centered links */
+}
+
+/* Center the other links (not logo) */
+nav ul .link-group {
+  position: absolute;
+  left: 50%; /* Move to start in the center then adjust with transform to truly center */
+  transform: translateX(-50%);
+  display: flex;
+  gap: 30px; /* Gap between centered links */
+}
+
+nav li img {
+  /* Logo image styling */
+  width: 64px;
+  height: 32px;
+  object-fit: cover;
+}
+
+nav a {
+  text-decoration: none; /* Remove underline from links */
+  color: var(--color-accent);
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: var(--color-accent-hover);
+}
+
+nav a:active {
+  color: var(--color-accent-active);
+}
+
+/* headings and text styles */
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  text-align: center;
+  color: var(--color-text);
+}
+
+h3 {
+  font-size: 1.2rem;
+  color: var(--color-text);
+}
+
+p.messages {
+  font-family: "Dancing Script", cursive;
+  font-size: 1.2rem;
+}
+
+/* movie grid styles - for home page and all categories pages */
+.movies-container {
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem; /* Gap between movie items */
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.movie {
+  flex-basis: 22%; /* Four movies per row - without shrinking or growing */
+  border: 1px solid var(--color-border);
+  aspect-ratio: 9 / 16; /* Standard movie poster ratio */
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden; /* Ensure child elements don't overflow the rounded corners */
+}
+
+.movie img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Cover the entire movie container */
+}
+
+.details-list {
+  list-style: none; /* Remove default list styling */
+  padding: 0;
+  color: #c7d2fe;
+  font-size: 0.7em;
+}
+
+.movie-info {
+  position: absolute; /* Overlay info on top of movie poster */
+  inset: 0; /* Cover entire movie container, it's like setting top:0; right:0; bottom:0; left:0; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: var(--color-overlay);
+  color: #e9efff;
+  opacity: 0; /* Hidden by default */
+  text-align: center;
+  padding: 10px;
+}
+
+.movie-info h3 {
+  margin: 5px 0;
+  color: #f3f7ff;
+}
+
+.movie-info p {
+  margin: 0;
+  font-size: 0.9em;
+  color: #c7d2fe;
+}
+
+/* Hover effects for movie items - Make info visible on hover and image slightly transparent and darkened */
+.movie:hover img {
+  opacity: 0.6;
+}
+
+.movie:hover .movie-info {
+  opacity: 1;
+}
+
+.movie:hover {
+  transform: scale(1.05);
+  border-color: var(--color-accent);
+  box-shadow: 0 8px 24px rgba(138, 180, 248, 0.2);
+}
+
+/* footer styles for all pages */
+footer {
+  text-align: center;
+  margin-top: 80px;
+  padding: 30px 0;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-text);
+}
+
+footer p {
+  margin: 0 0 10px 0; /* 0 top, right, left; 10px bottom */
+}
+
+footer a {
+  color: var(--color-accent);
+  text-decoration: none; /* Remove underline */
+  display: inline-block;
+}
+
+footer a:hover {
+  color: var(--color-accent-hover);
+}
+
+footer a:active {
+  color: var(--color-accent-active);
+}
+
+/* Responsive adjustments for movie grid */
+
+/* Large tablets - 3 movies per row */
+@media (max-width: 1200px) {
+  .movie {
+    flex: 0 0 30%;
+  }
+
+  .movies-container {
+    width: 90%;
+  }
+}
+
+/* Tablets - 2 movies per row */
+@media (max-width: 800px) {
+  .movie {
+    flex: 0 0 48%;
+  }
+
+  .movies-container {
+    width: 85%;
+  }
+}
+
+/* Phone screens - 1 movie per row */
+@media (max-width: 650px) {
+  .movie {
+    flex: 0 0 100%;
+  }
+  .movies-container {
+    width: 70%;
+  }
+}
+
+
+/* Navigation Bar - Responsive adjustments */
+@media (max-width: 768px) {
+  nav {
+    padding: 10px 5%; /* Adjust padding for smaller screens */
+  }
+
+  nav ul {
+    flex-direction: column; /* So the logo will be on top and the links below */
+    align-items: flex-start;
+  }
+
+  nav ul .link-group {
+    position: static;
+    transform: none;
+    margin-top: 8px;
+    gap: 15px;
+    font-size: 0.9rem;
+
+    /* Center the other links (not logo) */
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  /* Reduce logo size on smaller screens */
+  nav li img {
+    width: 40px;
+    height: auto;
+  }
+}

@@ -1,0 +1,343 @@
+/* Movie Details Page Styles */
+.movie-title {
+  width: min(90%, var(--page-max)); /* Limit max width */
+  text-align: left;
+  margin: 0 auto;
+  margin-top: 15rem;
+  font-size: clamp(1.8rem, 4vw + 0.5rem, 4rem); /* Responsive font size - min 1.8rem, max 4rem and scales with viewport width */
+}
+
+iframe {
+  width: 60%;
+  aspect-ratio: 16 / 9;
+  border: none; /* Remove default border */
+  border-radius: 10px;
+}
+
+.movie-content {
+  width: min(90%, var(--page-max));
+  margin-inline: auto; /* Center horizontally */
+  display: grid;
+  /* Three columns: trailer & movie details, spacer (without nothing), and cast */
+  grid-template-columns: minmax(260px, 1.7fr) minmax(0, 0.7fr) minmax(260px, 1.5fr);
+  /* Three rows: trailer & movie, movie header, description */
+  grid-template-rows: minmax(120px, auto) auto auto;
+  gap: 1.5rem;
+}
+
+.movie-content .trailer-and-movie {
+  grid-column: 1;
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.movie-content .movie-header {
+  grid-column: 1;
+  grid-row: 2;
+  display: flex;
+  width: 100%;
+  justify-content: left;
+  align-items: left;
+  gap: 5%;
+
+  /* prevent text overflow so it will not be like 7.5/ then new line and then 10 */
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: clamp(0.7rem, 3vw, 1rem); /* Responsive font size - min 0.7rem, max 1rem and scales with viewport width */
+  flex-direction: column;
+}
+
+.movie-content .description {
+  grid-column: 1;
+  grid-row: 3;
+  width: 100%;
+  height: 100%;
+}
+
+.short-details {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.movie-links {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.movie-links button {
+  background: var(--color-accent);
+}
+
+.movie-links button:hover {
+  background: var(--color-accent-hover);
+}
+
+.movie-links button:active {
+  background: var(--color-accent-active);
+}
+
+/* Separate background img for every movie */
+body#inception-page {
+  background-image: url("../assets/movie_posters/incepion-page-poster.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+body#dune-page {
+  background-image: url("../assets/movie_posters/dune-page-poster.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+body#anyone-but-you-page {
+  background-image: url("../assets/movie_posters/aby-page-poster_1.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+body#failure-page {
+  background-image: url("../assets/movie_posters/failure_to_launch-page-poster_1.jpg");
+  background-size: cover;
+  background-position: center;
+}
+body#my-oxford-page {
+  background-image: url("../assets/movie_posters/moxy-page-poster.jpg");
+  background-size: cover;
+  background-position: center;
+}
+body#the-fall-guy-page {
+  background-image: url("../assets/movie_posters/tfg-page-poster.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+body#civil-war-page {
+  background-image: url("../assets/movie_posters/ca-page-poster.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+body#pirates-page {
+  background-image: url("../assets/movie_posters/potc-page-poster.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.movie-content .cast {
+  display: flex;
+  flex-direction: column;
+  grid-column: 3;
+  grid-row: 1 / 3; /* Span two rows: trailer & movie and movie header */
+  align-self: end; /* Align cast list to the bottom */
+}
+
+/* The "cast" section title */
+.movie-element-title {
+  margin: 0;
+  font-size: 30px;
+  font-weight: lighter;
+}
+
+.movie-content .cast-list {
+  display: flex;
+  justify-content: right;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+}
+
+.actor {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  width: 20%;
+}
+
+.cast-list img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%; /* Circular actor photos */
+  object-fit: cover; /* Cover the area without distortion */
+}
+
+/* Actor name styling */
+.cast-list p {
+  margin: 0;
+  font-size: 0.6em;
+  color: #9aa3b2;
+}
+
+/* Reviews table */
+
+.reviews {
+  width: 100%;
+  border-collapse: collapse; /* Remove space between table cells */
+  margin: 1rem 0;
+  text-align: center;
+  color: var(--color-text);
+}
+
+/* Table cells */
+.reviews td {
+  border: 1px solid var(--color-border);
+  padding: 0.5rem;
+  background: #0b1222;
+}
+
+/* Table header */
+.reviews th {
+  background: #111827;
+  border: 1px solid var(--color-border);
+  padding: 0.8rem;
+  color: #cbd5e1;
+}
+
+/* play button and its states */
+
+.play-button {
+  font-size: 1.2rem;
+  color: var(--color-accent);
+  background-color: var(--color-bg-dark);
+  text-decoration: none; /* Remove underline */
+  text-align: center;
+  border: 2px solid var(--color-accent);
+  border-radius: 10px;
+  width: 60%;
+  opacity: 0.8;
+}
+
+.play-button:hover {
+  opacity: 1;
+  color: var(--color-accent-hover);
+}
+
+.play-button:active {
+  color: var(--color-accent-active);
+}
+
+/* Overlay hidden by default */
+.movie-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.95);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0; /* Hidden by default */
+  pointer-events: none; /* Disable interactions when hidden */
+  z-index: 9999; /* On top of all other content - even nav bar */
+}
+
+/* Show overlay when targeted */
+.movie-overlay:target {
+  /* When the overlay is targeted via URL hash */
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* Fullscreen video */
+.movie-overlay video {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+}
+
+/* Close button */
+.close {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  color: #ffffff;
+  font-size: 1rem;
+  text-decoration: none;
+  background: rgb(255, 0, 0.2);
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.close:hover {
+  background: rgb(255, 0, 0.8);
+}
+
+.close:active {
+  background: rgb(200, 0, 0);
+}
+
+
+
+/* Movie Details Page - Responsive layout */
+@media (max-width: 1350px) {
+    
+  .movie-content {
+    grid-template-columns: 1fr;
+  }
+
+  .movie-content .trailer-and-movie {
+    grid-column: 1;
+    grid-row: 1;
+    width: 70%;
+  }
+
+  .movie-content .movie-header {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .movie-content .description {
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  .movie-content .cast {
+    grid-column: 1;
+    grid-row: 4;
+  }
+
+  .movie-content .cast-list {
+    justify-content: left;
+  }
+
+  .actor {
+    width: auto;
+    margin-right: 15px;
+  }
+}
+
+/* Adjust play button font size on smaller screens */
+@media (max-width: 800px) {
+    .play-button {
+    font-size: 0.9rem;
+  }
+}
+
+/* Small tablets and phones */
+@media (max-width: 900px) {
+  .movie-title {
+    text-align: center;
+  }
+
+  .movie-content .trailer-and-movie {
+    grid-column: 1;
+    grid-row: 1;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+  .movie-content .movie-header {
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+  }
+}
+
+
+/* Media query for horizontal mobile devices - adjust movie title size and margin, because of limited height */
+@media (max-width: 1200px) and (orientation: landscape) {
+  .movie-title {
+    font-size: clamp(1.5rem, 6vw + 0.5rem, 3rem);
+    margin-top: 0;
+  }
+}

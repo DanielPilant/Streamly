@@ -1,0 +1,51 @@
+/* Styles for Terms and Conditions Page */
+.terms-container {
+  display: flex;
+  gap: 40px;
+  margin: 40px auto;
+  max-width: 1200px;
+  align-items: flex-start;
+}
+
+.terms-text {
+  flex: 1; /* Its like flex-grow:1; flex-shrink:1; flex-basis:0; */
+  padding: 20px;
+  color: var(--color-text);
+}
+
+.terms-text h2 {
+  color: var(--color-accent);
+}
+
+.terms-pdf {
+  width: 100%;
+  flex: 1; /* Its like flex-grow:1; flex-shrink:1; flex-basis:0; */
+}
+
+.terms-pdf embed {
+  width: 100%;
+  height: 600px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px var(--color-shadow);
+}
+
+.terms-text p {
+  margin-bottom: 15px;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+.terms-logo {
+  display: block;
+  margin: 0 auto 20px auto;
+  max-width: 75%;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .terms-container {
+    /* Stack vertically on smaller screens */
+    flex-direction: column;
+  }
+}

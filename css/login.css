@@ -1,0 +1,83 @@
+/* Login Page Styles */
+body.login-page {
+  margin: 0;
+  padding: 0;
+  display: flex; /* Use flexbox for centering */
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* 100% of viewport height */
+}
+
+.login-section {
+  width: min(450px, 90vw); /* don't exceed 450px, but be responsive */
+  padding: 40px;
+  border: 1px solid var(--color-accent);
+  border-radius: 12px;
+  background-color: var(--color-bg-light);
+  box-shadow: 0 8px 24px var(--color-shadow);
+}
+
+.login-section h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  margin-top: 0; /* Remove default top margin */
+  color: var(--color-accent);
+}
+
+.login-section label {
+  display: block; /* Make labels block elements for better spacing (will take is own line) */
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.login-section input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background: #0b1222;
+  color: var(--color-text);
+  font-size: 1rem;
+}
+
+.login-section input:focus {
+  outline: none; /* Remove default outline when focused */
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(138, 180, 248, 0.1);
+}
+
+.login-section button {
+  width: 100%;
+  padding: 12px;
+  font-size: 1.1rem;
+  margin-top: 10px;
+  cursor: pointer; /* The cursor changes to a pointer on hover */
+}
+
+
+/* Login Page - Responsive adjustments */
+@media screen and (orientation: landscape) and (max-height: 600px) {
+  .login-section {
+    width: min(500px, 85vw); /* Slightly wider for landscape */
+    padding: 30px;
+  }
+
+  .login-section h1 {
+    font-size: 1.5rem; /* Slightly smaller font size */
+    margin-bottom: 20px;
+  }
+
+  .login-section input {
+    padding: 10px; /* Slightly smaller padding */
+    margin-bottom: 15px; /* Reduced margin */
+  }
+}
+
+/* Login Page - Portrait orientation - so it will look good on tall phones */
+@media screen and (orientation: portrait) {
+  .login-section {
+    width: min(450px, 85vw);
+    padding: 40px;
+  }
+}
