@@ -1,4 +1,4 @@
-# 🎬 MovieMan — HTML & CSS Project
+# 🎬 Sreamly — HTML & CSS Project
 
 **Streamly** is a front-end movie website, built entirely with **HTML** and **CSS** as the first project in a 7-part Full-Stack Development course.
 
